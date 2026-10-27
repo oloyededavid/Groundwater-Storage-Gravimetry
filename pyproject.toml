@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "groundwater-storage-gravimetry"
 version = "0.1.0"
-description = "Satellite gravimetry mascon processing and terrestrial water storage mass balance for regional aquifer depletion analysis."
+description = "Satellite gravimetry (NASA GRACE/GRACE-FO) mascon processing and terrestrial water storage mass balance for regional aquifer depletion analysis."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
