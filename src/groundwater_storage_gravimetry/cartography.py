@@ -104,7 +104,7 @@ def plot_spatial_basin_grid(
     extra_legend_patches: list[Patch | Line2D] | None = None,
     out_path: str | None = None,
 ) -> plt.Figure:
-    """Render a publication-grade clipped spatial raster map with external legend and clean text."""
+    """Render a publication-grade clipped spatial raster map with external legend."""
     set_publication_style()
     fig, ax = plt.subplots(figsize=(9.4, 8.6))
 
@@ -145,9 +145,9 @@ def plot_spatial_basin_grid(
             masked_for_contour,
             levels=contour_levels,
             colors="#1a1a1a",
-            linewidths=0.85,
+            linewidths=0.8,
             linestyles="--",
-            alpha=0.78,
+            alpha=0.75,
             zorder=6,
         )
         fmt_str = (
@@ -202,11 +202,11 @@ def plot_spatial_basin_grid(
 
     ax.plot([], [], color="black", linewidth=2.3, label="Quaternary Chad Formation Aquifer Boundary")
 
-    # Clean Country Labels without any background box
-    ax.text(12.0, 14.15, "N I G E R", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
-    ax.text(14.95, 13.55, "C H A D", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
-    ax.text(11.35, 11.55, "N I G E R I A", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
-    ax.text(13.75, 10.50, "C A M E R O O N", fontsize=10, fontweight="bold", color="#1a1a1a", zorder=14)
+    # Centered Country Labels well inside each sector (zero boundary overlap)
+    ax.text(11.80, 14.15, "N I G E R", fontsize=11, fontweight="bold", ha="center", va="center", color="#1a1a1a", zorder=14)
+    ax.text(15.20, 13.45, "C H A D", fontsize=11, fontweight="bold", ha="center", va="center", color="#1a1a1a", zorder=14)
+    ax.text(11.55, 11.20, "N I G E R I A", fontsize=11, fontweight="bold", ha="center", va="center", color="#1a1a1a", zorder=14)
+    ax.text(14.05, 10.35, "C A M E R O O N", fontsize=10, fontweight="bold", ha="center", va="center", color="#1a1a1a", zorder=14)
 
     _add_north_arrow_and_scale(ax, lon_min, lon_max, lat_min, lat_max)
     _format_lat_lon_axes(ax, lon_min, lon_max, lat_min, lat_max)
@@ -216,26 +216,4 @@ def plot_spatial_basin_grid(
 
     ax.set_title(f"{title}\n{subtitle}", fontsize=11.5, fontweight="bold", pad=12)
 
-    handles, labels = ax.get_legend_handles_labels()
-    if extra_legend_patches:
-        handles.extend(extra_legend_patches)
-        labels.extend([p.get_label() for p in extra_legend_patches])
-
-    ax.legend(
-        handles=handles,
-        labels=labels,
-        title="Cartographic & Hydrogeologic Legend",
-        title_fontsize=9,
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.14),
-        ncol=2,
-        frameon=True,
-        facecolor="#fafafa",
-        edgecolor="black",
-        fontsize=8.5,
-    )
-
-    fig.subplots_adjust(bottom=0.26, top=0.90)
-    if out_path:
-        fig.savefig(out_path, dpi=300, bbox_inches="tight")
-    return fig
+    handles, labels = ax.get_legend_handles_labels
