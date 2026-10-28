@@ -26,7 +26,7 @@ def _add_north_arrow_and_scale(
     ax: plt.Axes, lon_min: float, lon_max: float, lat_min: float, lat_max: float
 ) -> None:
     """Add cartographic North arrow and 100 km scale bar to spatial maps."""
-    nx = lon_min + 0.08 * (lon_max - lon_min)
+    nx = lon_min + 0.07 * (lon_max - lon_min)
     ny_base = lat_max - 0.16 * (lat_max - lat_min)
     ny_tip = lat_max - 0.06 * (lat_max - lat_min)
     ax.annotate(
@@ -47,16 +47,16 @@ def _add_north_arrow_and_scale(
         zorder=15,
     )
 
-    # 100 km Scale Bar (Bottom Left: ~0.92 deg at 13N)
-    sx0 = lon_min + 0.08 * (lon_max - lon_min)
+    # 100 km Scale Bar (Bottom Left: ~0.92 deg at 12N)
+    sx0 = lon_min + 0.07 * (lon_max - lon_min)
     sx1 = sx0 + 0.92
-    sy = lat_min + 0.08 * (lat_max - lat_min)
+    sy = lat_min + 0.07 * (lat_max - lat_min)
     ax.plot([sx0, sx1], [sy, sy], color="black", lw=2.0, zorder=15)
-    ax.plot([sx0, sx0], [sy - 0.06, sy + 0.06], color="black", lw=1.8, zorder=15)
-    ax.plot([sx1, sx1], [sy - 0.06, sy + 0.06], color="black", lw=1.8, zorder=15)
+    ax.plot([sx0, sx0], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=15)
+    ax.plot([sx1, sx1], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=15)
     ax.text(
         (sx0 + sx1) / 2,
-        sy + 0.08,
+        sy + 0.09,
         "100 km",
         ha="center",
         va="bottom",
@@ -93,13 +93,14 @@ def plot_spatial_basin_grid(
     cmap: str = "terrain",
     vmin: float | None = None,
     vmax: float | None = None,
-    border_coords: np.ndarray | None = None,
+    border_coords: list[np.ndarray] | None = None,
     stream_lines: list[np.ndarray] | None = None,
+    lake_coords: np.ndarray | None = None,
     out_path: str | None = None,
 ) -> plt.Figure:
-    """Render a publication-grade clipped spatial raster map of the aquifer basin."""
+    """Render a publication-grade clipped spatial raster map of the Lake Chad Aquifer Basin."""
     set_publication_style()
-    fig, ax = plt.subplots(figsize=(8.5, 7.2))
+    fig, ax = plt.subplots(figsize=(8.8, 7.4))
 
     lon_min, lon_max = float(lon_grid.min()), float(lon_grid.max())
     lat_min, lat_max = float(lat_grid.min()), float(lat_grid.max())
@@ -127,49 +128,51 @@ def plot_spatial_basin_grid(
     mesh.set_clip_path(poly_patch)
 
     if border_coords is not None:
-        ax.plot(
-            border_coords[:, 0],
-            border_coords[:, 1],
-            color="#555555",
-            linestyle="-.",
-            linewidth=1.1,
-            label="International Border",
-            zorder=8,
-        )
+        for idx, b_line in enumerate(border_coords):
+            lbl = "International Border" if idx == 0 else None
+            ax.plot(
+                b_line[:, 0],
+                b_line[:, 1],
+                color="#4d4d4d",
+                linestyle="-.",
+                linewidth=1.1,
+                label=lbl,
+                zorder=8,
+            )
 
     if stream_lines is not None:
         for idx, sline in enumerate(stream_lines):
-            lbl = "HydroSHEDS Ephemeral/Perennial Routing" if idx == 0 else None
+            lbl = "Komadugu-Yobe & Chari-Logone Tributaries" if idx == 0 else None
             ax.plot(
                 sline[:, 0],
                 sline[:, 1],
                 color="#1f618d",
-                linewidth=1.2,
-                alpha=0.85,
+                linewidth=1.3,
+                alpha=0.88,
                 label=lbl,
                 zorder=9,
             )
 
-    ax.plot([], [], color="black", linewidth=2.0, label="Aquifer Catchment Boundary")
+    if lake_coords is not None:
+        lake_poly = Polygon(
+            lake_coords,
+            closed=True,
+            facecolor="#2980b9",
+            edgecolor="#0b3c5d",
+            linewidth=1.2,
+            alpha=0.85,
+            label="Lake Chad Open-Water / Sump Extent",
+            zorder=11,
+        )
+        ax.add_patch(lake_poly)
 
-    ax.text(
-        lon_min + 0.18 * (lon_max - lon_min),
-        lat_max - 0.10 * (lat_max - lat_min),
-        "N I G E R",
-        fontsize=12,
-        fontweight="bold",
-        color="#666666",
-        zorder=6,
-    )
-    ax.text(
-        lon_min + 0.52 * (lon_max - lon_min),
-        lat_min + 0.12 * (lat_max - lat_min),
-        "N I G E R I A",
-        fontsize=12,
-        fontweight="bold",
-        color="#666666",
-        zorder=6,
-    )
+    ax.plot([], [], color="black", linewidth=2.0, label="Chad Formation Aquifer Boundary")
+
+    # Transboundary Country Labels for Lake Chad Basin
+    ax.text(11.3, 14.3, "N I G E R", fontsize=11, fontweight="bold", color="#555555", zorder=12)
+    ax.text(15.2, 14.1, "C H A D", fontsize=11, fontweight="bold", color="#555555", zorder=12)
+    ax.text(11.1, 11.2, "N I G E R I A", fontsize=11, fontweight="bold", color="#555555", zorder=12)
+    ax.text(14.5, 10.3, "C A M E R O O N", fontsize=10, fontweight="bold", color="#555555", zorder=12)
 
     _add_north_arrow_and_scale(ax, lon_min, lon_max, lat_min, lat_max)
     _format_lat_lon_axes(ax, lon_min, lon_max, lat_min, lat_max)
@@ -177,14 +180,14 @@ def plot_spatial_basin_grid(
     cbar = fig.colorbar(mesh, ax=ax, fraction=0.038, pad=0.03)
     cbar.set_label(cbar_label, fontsize=10, fontweight="bold")
 
-    ax.set_title(f"{title}\n{subtitle}", fontsize=12, fontweight="bold", pad=12)
+    ax.set_title(f"{title}\n{subtitle}", fontsize=11.5, fontweight="bold", pad=12)
     ax.legend(
         loc="lower center",
-        bbox_to_anchor=(0.5, -0.15),
+        bbox_to_anchor=(0.5, -0.17),
         ncol=2,
         frameon=True,
         edgecolor="black",
-        fontsize=9,
+        fontsize=8.5,
     )
 
     if out_path:
