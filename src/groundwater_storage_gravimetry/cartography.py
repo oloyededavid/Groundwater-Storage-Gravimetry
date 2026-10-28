@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch, Polygon
+from matplotlib.path import Path
 
 
 def set_publication_style() -> None:
@@ -12,11 +13,11 @@ def set_publication_style() -> None:
         "font.family": "serif",
         "font.serif": ["DejaVu Serif", "Times New Roman", "Georgia"],
         "axes.edgecolor": "#1a1a1a",
-        "axes.linewidth": 0.9,
+        "axes.linewidth": 0.95,
         "grid.color": "#cccccc",
         "grid.linestyle": "--",
         "grid.linewidth": 0.5,
-        "grid.alpha": 0.6,
+        "grid.alpha": 0.55,
         "figure.dpi": 300,
         "savefig.dpi": 300,
         "savefig.bbox": "tight",
@@ -27,33 +28,33 @@ def _add_north_arrow_and_scale(
     ax: plt.Axes, lon_min: float, lon_max: float, lat_min: float, lat_max: float
 ) -> None:
     """Add cartographic North arrow and 100 km scale bar to spatial maps."""
-    nx = lon_min + 0.07 * (lon_max - lon_min)
-    ny_base = lat_max - 0.16 * (lat_max - lat_min)
-    ny_tip = lat_max - 0.06 * (lat_max - lat_min)
+    nx = lon_min + 0.065 * (lon_max - lon_min)
+    ny_base = lat_max - 0.15 * (lat_max - lat_min)
+    ny_tip = lat_max - 0.055 * (lat_max - lat_min)
     ax.annotate(
         "",
         xy=(nx, ny_tip),
         xytext=(nx, ny_base),
         arrowprops=dict(facecolor="black", width=2.5, headwidth=8, headlength=8),
-        zorder=15,
+        zorder=18,
     )
     ax.text(
         nx,
-        ny_tip + 0.02 * (lat_max - lat_min),
+        ny_tip + 0.018 * (lat_max - lat_min),
         "N",
         ha="center",
         va="bottom",
         fontsize=11,
         fontweight="bold",
-        zorder=15,
+        zorder=18,
     )
 
-    sx0 = lon_min + 0.07 * (lon_max - lon_min)
+    sx0 = lon_min + 0.065 * (lon_max - lon_min)
     sx1 = sx0 + 0.92
-    sy = lat_min + 0.07 * (lat_max - lat_min)
-    ax.plot([sx0, sx1], [sy, sy], color="black", lw=2.0, zorder=15)
-    ax.plot([sx0, sx0], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=15)
-    ax.plot([sx1, sx1], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=15)
+    sy = lat_min + 0.065 * (lat_max - lat_min)
+    ax.plot([sx0, sx1], [sy, sy], color="black", lw=2.2, zorder=18)
+    ax.plot([sx0, sx0], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=18)
+    ax.plot([sx1, sx1], [sy - 0.07, sy + 0.07], color="black", lw=1.8, zorder=18)
     ax.text(
         (sx0 + sx1) / 2,
         sy + 0.09,
@@ -62,7 +63,7 @@ def _add_north_arrow_and_scale(
         va="bottom",
         fontsize=9,
         fontweight="bold",
-        zorder=15,
+        zorder=18,
     )
 
 
@@ -99,13 +100,13 @@ def plot_spatial_basin_grid(
     stream_lines: list[np.ndarray] | None = None,
     lake_coords: np.ndarray | None = None,
     contour_levels: list[float] | None = None,
-    flow_vectors: bool = False,
+    contour_unit: str = "",
     extra_legend_patches: list[Patch | Line2D] | None = None,
     out_path: str | None = None,
 ) -> plt.Figure:
-    """Render a publication-grade clipped spatial raster map with external legend."""
+    """Render a publication-grade clipped spatial raster map with external legend and clean text."""
     set_publication_style()
-    fig, ax = plt.subplots(figsize=(9.0, 8.5))
+    fig, ax = plt.subplots(figsize=(9.4, 8.6))
 
     lon_min, lon_max = float(lon_grid.min()), float(lon_grid.max())
     lat_min, lat_max = float(lat_grid.min()), float(lat_grid.max())
@@ -115,8 +116,8 @@ def plot_spatial_basin_grid(
         closed=True,
         facecolor="none",
         edgecolor="black",
-        linewidth=2.2,
-        zorder=14,
+        linewidth=2.3,
+        zorder=15,
     )
     ax.add_patch(poly_patch)
 
@@ -133,35 +134,30 @@ def plot_spatial_basin_grid(
     mesh.set_clip_path(poly_patch)
 
     if contour_levels is not None:
+        poly_path = Path(basin_coords)
+        pts = np.column_stack((lon_grid.ravel(), lat_grid.ravel()))
+        inside_mask = poly_path.contains_points(pts).reshape(lon_grid.shape)
+        masked_for_contour = np.where(inside_mask, data_grid, np.nan)
+
         cs = ax.contour(
             lon_grid,
             lat_grid,
-            data_grid,
+            masked_for_contour,
             levels=contour_levels,
-            colors="#222222",
-            linewidths=0.65,
+            colors="#1a1a1a",
+            linewidths=0.85,
             linestyles="--",
-            alpha=0.65,
-            zorder=5,
-        )
-        for col in cs.collections if hasattr(cs, "collections") else [cs]:
-            col.set_clip_path(poly_patch)
-
-    if flow_vectors:
-        dy, dx = np.gradient(-data_grid)
-        step = 18
-        q = ax.quiver(
-            lon_grid[::step, ::step],
-            lat_grid[::step, ::step],
-            dx[::step, ::step],
-            dy[::step, ::step],
-            color="#111111",
-            alpha=0.55,
-            scale=18.0,
-            width=0.003,
+            alpha=0.78,
             zorder=6,
         )
-        q.set_clip_path(poly_patch)
+        fmt_str = (
+            f"%d{contour_unit}"
+            if all(float(x).is_integer() for x in contour_levels)
+            else f"%.1f{contour_unit}"
+        )
+        clbls = ax.clabel(cs, inline=True, inline_spacing=4, fontsize=8.0, fmt=fmt_str, colors="#111111")
+        for txt in clbls:
+            txt.set_fontweight("bold")
 
     if stream_lines is not None:
         for idx, sline in enumerate(stream_lines):
@@ -170,10 +166,10 @@ def plot_spatial_basin_grid(
                 sline[:, 0],
                 sline[:, 1],
                 color="#0b5394",
-                linewidth=1.6,
+                linewidth=1.7,
                 alpha=0.92,
                 label=lbl,
-                zorder=8,
+                zorder=9,
             )
             s_obj.set_clip_path(poly_patch)
 
@@ -186,7 +182,7 @@ def plot_spatial_basin_grid(
             linewidth=1.3,
             alpha=0.95,
             label="Lake Chad Open-Water / Sump Extent",
-            zorder=10,
+            zorder=11,
         )
         ax.add_patch(lake_poly)
 
@@ -200,16 +196,17 @@ def plot_spatial_basin_grid(
                 linestyle="-.",
                 linewidth=1.2,
                 label=lbl,
-                zorder=11,
+                zorder=12,
             )
             line_obj.set_clip_path(poly_patch)
 
-    ax.plot([], [], color="black", linewidth=2.2, label="Quaternary Chad Formation Aquifer Boundary")
+    ax.plot([], [], color="black", linewidth=2.3, label="Quaternary Chad Formation Aquifer Boundary")
 
-    ax.text(11.9, 14.0, "N I G E R", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
-    ax.text(14.85, 13.5, "C H A D", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
-    ax.text(11.3, 11.55, "N I G E R I A", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
-    ax.text(13.75, 10.55, "C A M E R O O N", fontsize=10, fontweight="bold", color="#2c2c2c", zorder=13)
+    # Clean Country Labels without any background box
+    ax.text(12.0, 14.15, "N I G E R", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
+    ax.text(14.95, 13.55, "C H A D", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
+    ax.text(11.35, 11.55, "N I G E R I A", fontsize=11, fontweight="bold", color="#1a1a1a", zorder=14)
+    ax.text(13.75, 10.50, "C A M E R O O N", fontsize=10, fontweight="bold", color="#1a1a1a", zorder=14)
 
     _add_north_arrow_and_scale(ax, lon_min, lon_max, lat_min, lat_max)
     _format_lat_lon_axes(ax, lon_min, lon_max, lat_min, lat_max)
@@ -239,7 +236,6 @@ def plot_spatial_basin_grid(
     )
 
     fig.subplots_adjust(bottom=0.26, top=0.90)
-
     if out_path:
         fig.savefig(out_path, dpi=300, bbox_inches="tight")
     return fig
