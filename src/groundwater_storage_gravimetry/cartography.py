@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Polygon
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch, Polygon
 
 
 def set_publication_style() -> None:
@@ -47,7 +48,6 @@ def _add_north_arrow_and_scale(
         zorder=15,
     )
 
-    # 100 km Scale Bar (Bottom Left: ~0.92 deg at 12N)
     sx0 = lon_min + 0.07 * (lon_max - lon_min)
     sx1 = sx0 + 0.92
     sy = lat_min + 0.07 * (lat_max - lat_min)
@@ -78,6 +78,8 @@ def _format_lat_lon_axes(
     ax.set_yticks(yticks)
     ax.set_xticklabels([f"{int(x)}°E" for x in xticks], fontsize=9)
     ax.set_yticklabels([f"{int(y)}°N" for y in yticks], fontsize=9)
+    ax.set_xlabel("Longitude (°E)", fontsize=10, fontweight="bold", labelpad=6)
+    ax.set_ylabel("Latitude (°N)", fontsize=10, fontweight="bold", labelpad=6)
     ax.grid(True, zorder=1)
     ax.set_aspect("equal", adjustable="box")
 
@@ -96,11 +98,12 @@ def plot_spatial_basin_grid(
     border_coords: list[np.ndarray] | None = None,
     stream_lines: list[np.ndarray] | None = None,
     lake_coords: np.ndarray | None = None,
+    extra_legend_patches: list[Patch | Line2D] | None = None,
     out_path: str | None = None,
 ) -> plt.Figure:
-    """Render a publication-grade clipped spatial raster map of the Lake Chad Aquifer Basin."""
+    """Render a publication-grade clipped spatial raster map with comprehensive external legend."""
     set_publication_style()
-    fig, ax = plt.subplots(figsize=(8.8, 7.4))
+    fig, ax = plt.subplots(figsize=(9.0, 8.4))
 
     lon_min, lon_max = float(lon_grid.min()), float(lon_grid.max())
     lat_min, lat_max = float(lat_grid.min()), float(lat_grid.max())
@@ -110,7 +113,7 @@ def plot_spatial_basin_grid(
         closed=True,
         facecolor="none",
         edgecolor="black",
-        linewidth=2.0,
+        linewidth=2.2,
         zorder=10,
     )
     ax.add_patch(poly_patch)
@@ -129,29 +132,31 @@ def plot_spatial_basin_grid(
 
     if border_coords is not None:
         for idx, b_line in enumerate(border_coords):
-            lbl = "International Border" if idx == 0 else None
-            ax.plot(
+            lbl = "International Border (Transboundary Sector)" if idx == 0 else None
+            (line_obj,) = ax.plot(
                 b_line[:, 0],
                 b_line[:, 1],
-                color="#4d4d4d",
+                color="#333333",
                 linestyle="-.",
-                linewidth=1.1,
+                linewidth=1.2,
                 label=lbl,
                 zorder=8,
             )
+            line_obj.set_clip_path(poly_patch)
 
     if stream_lines is not None:
         for idx, sline in enumerate(stream_lines):
-            lbl = "Komadugu-Yobe & Chari-Logone Tributaries" if idx == 0 else None
-            ax.plot(
+            lbl = "Komadugu-Yobe & Chari-Logone Fluvial Network" if idx == 0 else None
+            (s_obj,) = ax.plot(
                 sline[:, 0],
                 sline[:, 1],
-                color="#1f618d",
-                linewidth=1.3,
-                alpha=0.88,
+                color="#0b5394",
+                linewidth=1.5,
+                alpha=0.9,
                 label=lbl,
                 zorder=9,
             )
+            s_obj.set_clip_path(poly_patch)
 
     if lake_coords is not None:
         lake_poly = Polygon(
@@ -159,20 +164,20 @@ def plot_spatial_basin_grid(
             closed=True,
             facecolor="#2980b9",
             edgecolor="#0b3c5d",
-            linewidth=1.2,
-            alpha=0.85,
+            linewidth=1.3,
+            alpha=0.88,
             label="Lake Chad Open-Water / Sump Extent",
             zorder=11,
         )
         ax.add_patch(lake_poly)
 
-    ax.plot([], [], color="black", linewidth=2.0, label="Chad Formation Aquifer Boundary")
+    ax.plot([], [], color="black", linewidth=2.2, label="Quaternary Chad Formation Aquifer Boundary")
 
-    # Transboundary Country Labels for Lake Chad Basin
-    ax.text(11.3, 14.3, "N I G E R", fontsize=11, fontweight="bold", color="#555555", zorder=12)
-    ax.text(15.2, 14.1, "C H A D", fontsize=11, fontweight="bold", color="#555555", zorder=12)
-    ax.text(11.1, 11.2, "N I G E R I A", fontsize=11, fontweight="bold", color="#555555", zorder=12)
-    ax.text(14.5, 10.3, "C A M E R O O N", fontsize=10, fontweight="bold", color="#555555", zorder=12)
+    # Cleanly positioned national sector labels inside the basin (avoiding boundary collisions)
+    ax.text(11.9, 14.0, "N I G E R", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
+    ax.text(14.8, 13.5, "C H A D", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
+    ax.text(11.3, 11.6, "N I G E R I A", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
+    ax.text(13.8, 10.6, "C A M E R O O N", fontsize=10, fontweight="bold", color="#3a3a3a", zorder=12)
 
     _add_north_arrow_and_scale(ax, lon_min, lon_max, lat_min, lat_max)
     _format_lat_lon_axes(ax, lon_min, lon_max, lat_min, lat_max)
@@ -181,15 +186,28 @@ def plot_spatial_basin_grid(
     cbar.set_label(cbar_label, fontsize=10, fontweight="bold")
 
     ax.set_title(f"{title}\n{subtitle}", fontsize=11.5, fontweight="bold", pad=12)
+
+    handles, labels = ax.get_legend_handles_labels()
+    if extra_legend_patches:
+        handles.extend(extra_legend_patches)
+        labels.extend([p.get_label() for p in extra_legend_patches])
+
     ax.legend(
-        loc="lower center",
-        bbox_to_anchor=(0.5, -0.17),
+        handles=handles,
+        labels=labels,
+        title="Cartographic & Hydrogeologic Legend",
+        title_fontsize=9,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.14),
         ncol=2,
         frameon=True,
+        facecolor="#fafafa",
         edgecolor="black",
         fontsize=8.5,
     )
 
+    fig.subplots_adjust(bottom=0.25, top=0.90)
+
     if out_path:
-        fig.savefig(out_path, dpi=300)
+        fig.savefig(out_path, dpi=300, bbox_inches="tight")
     return fig
