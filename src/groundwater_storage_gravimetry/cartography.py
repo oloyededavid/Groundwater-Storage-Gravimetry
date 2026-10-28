@@ -98,12 +98,14 @@ def plot_spatial_basin_grid(
     border_coords: list[np.ndarray] | None = None,
     stream_lines: list[np.ndarray] | None = None,
     lake_coords: np.ndarray | None = None,
+    contour_levels: list[float] | None = None,
+    flow_vectors: bool = False,
     extra_legend_patches: list[Patch | Line2D] | None = None,
     out_path: str | None = None,
 ) -> plt.Figure:
-    """Render a publication-grade clipped spatial raster map with comprehensive external legend."""
+    """Render a publication-grade clipped spatial raster map with external legend."""
     set_publication_style()
-    fig, ax = plt.subplots(figsize=(9.0, 8.4))
+    fig, ax = plt.subplots(figsize=(9.0, 8.5))
 
     lon_min, lon_max = float(lon_grid.min()), float(lon_grid.max())
     lat_min, lat_max = float(lat_grid.min()), float(lat_grid.max())
@@ -114,7 +116,7 @@ def plot_spatial_basin_grid(
         facecolor="none",
         edgecolor="black",
         linewidth=2.2,
-        zorder=10,
+        zorder=14,
     )
     ax.add_patch(poly_patch)
 
@@ -130,19 +132,36 @@ def plot_spatial_basin_grid(
     )
     mesh.set_clip_path(poly_patch)
 
-    if border_coords is not None:
-        for idx, b_line in enumerate(border_coords):
-            lbl = "International Border (Transboundary Sector)" if idx == 0 else None
-            (line_obj,) = ax.plot(
-                b_line[:, 0],
-                b_line[:, 1],
-                color="#333333",
-                linestyle="-.",
-                linewidth=1.2,
-                label=lbl,
-                zorder=8,
-            )
-            line_obj.set_clip_path(poly_patch)
+    if contour_levels is not None:
+        cs = ax.contour(
+            lon_grid,
+            lat_grid,
+            data_grid,
+            levels=contour_levels,
+            colors="#222222",
+            linewidths=0.65,
+            linestyles="--",
+            alpha=0.65,
+            zorder=5,
+        )
+        for col in cs.collections if hasattr(cs, "collections") else [cs]:
+            col.set_clip_path(poly_patch)
+
+    if flow_vectors:
+        dy, dx = np.gradient(-data_grid)
+        step = 18
+        q = ax.quiver(
+            lon_grid[::step, ::step],
+            lat_grid[::step, ::step],
+            dx[::step, ::step],
+            dy[::step, ::step],
+            color="#111111",
+            alpha=0.55,
+            scale=18.0,
+            width=0.003,
+            zorder=6,
+        )
+        q.set_clip_path(poly_patch)
 
     if stream_lines is not None:
         for idx, sline in enumerate(stream_lines):
@@ -151,10 +170,10 @@ def plot_spatial_basin_grid(
                 sline[:, 0],
                 sline[:, 1],
                 color="#0b5394",
-                linewidth=1.5,
-                alpha=0.9,
+                linewidth=1.6,
+                alpha=0.92,
                 label=lbl,
-                zorder=9,
+                zorder=8,
             )
             s_obj.set_clip_path(poly_patch)
 
@@ -165,19 +184,32 @@ def plot_spatial_basin_grid(
             facecolor="#2980b9",
             edgecolor="#0b3c5d",
             linewidth=1.3,
-            alpha=0.88,
+            alpha=0.95,
             label="Lake Chad Open-Water / Sump Extent",
-            zorder=11,
+            zorder=10,
         )
         ax.add_patch(lake_poly)
 
+    if border_coords is not None:
+        for idx, b_line in enumerate(border_coords):
+            lbl = "International Border (Transboundary Sector)" if idx == 0 else None
+            (line_obj,) = ax.plot(
+                b_line[:, 0],
+                b_line[:, 1],
+                color="#333333",
+                linestyle="-.",
+                linewidth=1.2,
+                label=lbl,
+                zorder=11,
+            )
+            line_obj.set_clip_path(poly_patch)
+
     ax.plot([], [], color="black", linewidth=2.2, label="Quaternary Chad Formation Aquifer Boundary")
 
-    # Cleanly positioned national sector labels inside the basin (avoiding boundary collisions)
-    ax.text(11.9, 14.0, "N I G E R", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
-    ax.text(14.8, 13.5, "C H A D", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
-    ax.text(11.3, 11.6, "N I G E R I A", fontsize=11, fontweight="bold", color="#3a3a3a", zorder=12)
-    ax.text(13.8, 10.6, "C A M E R O O N", fontsize=10, fontweight="bold", color="#3a3a3a", zorder=12)
+    ax.text(11.9, 14.0, "N I G E R", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
+    ax.text(14.85, 13.5, "C H A D", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
+    ax.text(11.3, 11.55, "N I G E R I A", fontsize=11, fontweight="bold", color="#2c2c2c", zorder=13)
+    ax.text(13.75, 10.55, "C A M E R O O N", fontsize=10, fontweight="bold", color="#2c2c2c", zorder=13)
 
     _add_north_arrow_and_scale(ax, lon_min, lon_max, lat_min, lat_max)
     _format_lat_lon_axes(ax, lon_min, lon_max, lat_min, lat_max)
@@ -206,7 +238,7 @@ def plot_spatial_basin_grid(
         fontsize=8.5,
     )
 
-    fig.subplots_adjust(bottom=0.25, top=0.90)
+    fig.subplots_adjust(bottom=0.26, top=0.90)
 
     if out_path:
         fig.savefig(out_path, dpi=300, bbox_inches="tight")
