@@ -1,12 +1,10 @@
-"""Satellite gravimetry and terrestrial water storage mass balance package."""
+"""Core spatial statistics and hydrological model evaluation library."""
 
-from .cartography import plot_spatial_basin_grid, set_publication_style
-from .mass_balance import MassBalanceResult, isolate_groundwater_storage
+from .metrics import kling_gupta_efficiency, nash_sutcliffe_efficiency, rmse
 
 __all__ = [
-    "MassBalanceResult",
-    "isolate_groundwater_storage",
-    "plot_spatial_basin_grid",
-    "set_publication_style",
+    "kling_gupta_efficiency",
+    "nash_sutcliffe_efficiency",
+    "rmse",
 ]
 __version__ = "0.1.0"
