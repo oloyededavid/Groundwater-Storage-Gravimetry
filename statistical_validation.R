@@ -1,9 +1,4 @@
-# ==============================================================================
-# Project : Groundwater-Storage-Gravimetry (Lake Chad Basin, 2002-2025)
-# Script  : statistical_validation.R
-# Purpose : Non-parametric hydro-statistical validation (Mann-Kendall, 
-#           Theil-Sen Slope, Q-Q Normality & ACF) in R.
-# ==============================================================================
+
 
 df <- read.csv("lake_chad_gravimetry_timeseries_2002_2025.csv", stringsAsFactors = FALSE)
 obs <- df$borehole_piezometric_mm
