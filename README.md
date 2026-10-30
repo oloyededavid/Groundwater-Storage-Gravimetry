@@ -62,3 +62,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 * **Maiduguri–Borno Hotspot:** Heavy urban and agricultural pumping around Maiduguri caused localized drawdown exceeding **$-11.8\text{ mm/yr}$**.
 * **60-Day Recharge Delay:** Cross-correlation shows a **2-month lag** between peak monsoon rains in August and peak water-table recovery in October.
 * **Ground Validation:** Satellite estimates matched observation borehole records closely, achieving a Kling-Gupta Efficiency ($\mathrm{KGE}$) of **$0.947$**, Nash-Sutcliffe Efficiency ($\mathrm{NSE}$) of **$0.966$**, and $\mathrm{RMSE}$ of **$7.43\text{ mm}$**.
+---
+
+## Research Reflection
+Discussions around the Lake Chad Basin usually stop at the shrinking surface lake, overlooking how heavily communities now rely on the underlying aquifers to survive erratic dry seasons. Because working observation wells across the region are scarce, groundwater loss mostly happens out of sight. I built this Python and R workflow to bridge that gap—showing that when NASA GRACE gravity data is carefully separated from soil moisture and tested honestly against local boreholes, open satellite data can clearly reveal where heavy pumping is pushing our aquifers too far.
