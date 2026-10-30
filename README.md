@@ -21,7 +21,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 
 ## Documentation & Code
 * **Full Study Report (PDF):** [View Complete PDF](documents/Multi%20Decadal%20Assessment%20Quaternary%20Chad%20Formation%20Groundwater%20Storage%202002%20-%202025.pdf)
-* **Python Notebook (GEE & Water Balance):** [Open in Google Colab](https://colab.research.google.com/drive/1Nfs9r_sVro5w97wVQGNANVt7q6mNRs-z#scrollTo=hd0Yoab4W3aE) | [View Source Notebook](code/Lake_Chad_Hydro_Gravimetry.ipynb)
+* **Python Notebook (GEE & Water Balance):** [Open in Google Colab](https://colab.research.google.com/drive/1Nfs9r_sVro5w97wVQGNANVt7q6mNRs-z#scrollTo=hd0Yoab4W3aE) 
 * **R Validation Script (Trend & Error Checks):** [View R Script](statistical_validation.R)
 
 ---
