@@ -61,7 +61,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 
 ## Key Findings
 * **Basin-Wide Depletion:** Groundwater across the Chad Formation declined at an average rate of **$-5.67\text{ mm/yr}$** (ordinary least squares on the CSV in this repository; the p-value ignores autocorrelation, and the trend remains significant after allowing for it), equal to an annual volume loss of about **$1.94\text{ km}^3\text{/yr}$** over 342,000 km². Earlier versions of this file gave $-5.84$ mm/yr and $1.97$ km³/yr, which the CSV and Figure 3 do not support.
-* **Maiduguri–Borno Hotspot:** Heavy urban and agricultural pumping around Maiduguri caused localized drawdown exceeding **$-11.8\text{ mm/yr}$**.
+* **Maiduguri–Borno pattern:** The trend map shows stronger drawdown (below $-11.8\text{ mm/yr}$) around Maiduguri. That is finer than GRACE can resolve (a few hundred kilometres), and pumping as the cause was not tested.
 * **60-Day Recharge Delay:** Cross-correlation shows a **2-month lag** between peak monsoon rains in August and peak water-table recovery in October.
 * **Ground Validation:** Satellite estimates matched observation borehole records closely, achieving a Kling-Gupta Efficiency ($\mathrm{KGE}$) of **$0.947$**, Nash-Sutcliffe Efficiency ($\mathrm{NSE}$) of **$0.966$**, and $\mathrm{RMSE}$ of **$7.43\text{ mm}$**.
 ---
