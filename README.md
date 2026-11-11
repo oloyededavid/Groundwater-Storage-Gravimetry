@@ -19,7 +19,7 @@ Using the standard water balance equation, we isolate groundwater storage change
 
 $$\Delta \text{GWS} = \Delta \text{TWS} - \Delta \text{SMS} - \Delta \text{SW}$$
 
-The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land surface models, and **CHIRPS** rainfall data in Google Earth Engine. We also calculate the combined uncertainty ($\pm 14.38\text{ mm}$) and compare the satellite estimates with a borehole series whose source is not documented (the report calls it five boreholes, $\text{BH-01}$ to $\text{BH-05}$).
+The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land surface models (the Noah model has no surface-water or lake storage term, and the source of the surface-water column in the CSV is not documented), and **CHIRPS** rainfall data in Google Earth Engine. We also calculate the combined uncertainty ($\pm 14.38\text{ mm}$) and compare the satellite estimates with a borehole series whose source is not documented (the report calls it five boreholes, $\text{BH-01}$ to $\text{BH-05}$).
 
 ## Documentation & Code
 * **Full Study Report (PDF):** [View Complete PDF](documents/Multi%20Decadal%20Assessment%20Quaternary%20Chad%20Formation%20Groundwater%20Storage%202002%20-%202025.pdf)
