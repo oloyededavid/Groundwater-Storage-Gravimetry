@@ -1,10 +1,9 @@
-"""Core spatial statistics and hydrological model evaluation library."""
+"""Terrestrial water storage mass balance and groundwater storage isolation from GRACE-style inputs."""
 
-from .metrics import kling_gupta_efficiency, nash_sutcliffe_efficiency, rmse
+from .mass_balance import MassBalanceResult, isolate_groundwater_storage
 
 __all__ = [
-    "kling_gupta_efficiency",
-    "nash_sutcliffe_efficiency",
-    "rmse",
+    "MassBalanceResult",
+    "isolate_groundwater_storage",
 ]
 __version__ = "0.1.0"
