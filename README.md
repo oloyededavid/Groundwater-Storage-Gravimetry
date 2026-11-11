@@ -19,7 +19,7 @@ Using the standard water balance equation, we isolate groundwater storage change
 
 $$\Delta \text{GWS} = \Delta \text{TWS} - \Delta \text{SMS} - \Delta \text{SW}$$
 
-The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land surface models, and **CHIRPS** rainfall data in Google Earth Engine. We also calculate the combined uncertainty ($\pm 14.38\text{ mm}$) and validate the satellite estimates against five ground observation boreholes ($\text{BH-01}$ to $\text{BH-05}$).
+The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land surface models, and **CHIRPS** rainfall data in Google Earth Engine. We also calculate the combined uncertainty ($\pm 14.38\text{ mm}$) and compare the satellite estimates with a borehole series whose source is not documented (the report calls it five boreholes, $\text{BH-01}$ to $\text{BH-05}$).
 
 ## Documentation & Code
 * **Full Study Report (PDF):** [View Complete PDF](documents/Multi%20Decadal%20Assessment%20Quaternary%20Chad%20Formation%20Groundwater%20Storage%202002%20-%202025.pdf)
@@ -34,7 +34,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 | Study Area & Monitoring Wells | Water Balance Separation (2002–2025) |
 | :---: | :---: |
 | ![Study Area](figures/fig1_study_area_map.png) | ![TWS Partitioning](figures/fig3_tws_gws_partitioning.png) |
-| **Figure 1:** Boundary of the 342,000 km² Quaternary Chad Formation across Nigeria, Niger, Chad, and Cameroon, showing major rivers and validation boreholes ($\text{BH-01}$ to $\text{BH-05}$). | **Figure 2:** Separation of GRACE total water storage into GLDAS surface components (top) and isolated groundwater storage anomalies ($\Delta \text{GWS}$) with the $\pm 14.38\text{ mm}$ error band (bottom). |
+| **Figure 1:** Boundary of the 342,000 km² Quaternary Chad Formation across Nigeria, Niger, Chad, and Cameroon, showing major rivers and the borehole locations named in the report ($\text{BH-01}$ to $\text{BH-05}$; no coordinates are in the repository). | **Figure 2:** Separation of GRACE total water storage into GLDAS surface components (top) and isolated groundwater storage anomalies ($\Delta \text{GWS}$) with the $\pm 14.38\text{ mm}$ error band (bottom). |
 
 | Long-Term Groundwater Depletion Rate | Seasonal Rainfall vs. Recharge Lag |
 | :---: | :---: |
@@ -44,7 +44,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 | Aquifer Vulnerability Map | Borehole Validation Results |
 | :---: | :---: |
 | ![Vulnerability Hotspots](figures/fig8_aquifer_vulnerability_index.png) | ![Piezometric Validation](figures/fig9_piezometric_validation.png) |
-| **Figure 5:** Multi-criteria map combining depletion rates and rainfall deficit to highlight high-stress groundwater zones across the basin. | **Figure 6:** Comparison of satellite groundwater estimates against ground borehole records ($\mathrm{KGE} = 0.947$, $\mathrm{NSE} = 0.966$, $\mathrm{RMSE} = 7.43\text{ mm}$). |
+| **Figure 5:** Multi-criteria map combining depletion rates and rainfall deficit to highlight high-stress groundwater zones across the basin. | **Figure 6:** Comparison of satellite groundwater estimates against the borehole column of the CSV (source unverified) ($\mathrm{KGE} = 0.947$, $\mathrm{NSE} = 0.966$, $\mathrm{RMSE} = 7.43\text{ mm}$). |
 
 ---
 
@@ -55,7 +55,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 | **01** | **Data Collection** | Extracted monthly GRACE/GRACE-FO total water storage, GLDAS-2.1 soil moisture and surface water, and CHIRPS rainfall (2002–2025). | `Google Earth Engine`, `Python` |
 | **02** | **Water Balance & Uncertainty** | Subtracted surface and soil water from GRACE total water storage; combined dataset uncertainties using Root-Sum-Square error propagation ($\pm 14.38\text{ mm}$). | `NumPy`, `SciPy`, `Pandas` |
 | **03** | **Trend & Vulnerability Mapping** | Calculated pixel-wise linear trends across all 276 months to map depletion rates and built a weighted Aquifer Stress Index. | `Rasterio`, `GeoPandas`, `Matplotlib` |
-| **04** | **Statistical Validation** | Tested trends using Mann-Kendall and Theil-Sen slopes; compared satellite results against 5 monitoring boreholes ($S_y = 0.052$). | `R (tidyverse, hydroGOF, tseries)` |
+| **04** | **Statistical Validation** | Tested trends using Mann-Kendall and Theil-Sen slopes; compared satellite results against a borehole series of unknown source ($S_y = 0.052$, an unconfined-aquifer value). | `R (tidyverse, hydroGOF, tseries)` |
 
 ---
 
@@ -63,7 +63,7 @@ The workflow combines **NASA GRACE/GRACE-FO** gravity data, **GLDAS-2.1** land s
 * **Basin-Wide Depletion:** Groundwater across the Chad Formation declined at an average rate of **$-5.67\text{ mm/yr}$** (ordinary least squares on the CSV in this repository; the p-value ignores autocorrelation, and the trend remains significant after allowing for it), equal to an annual volume loss of about **$1.94\text{ km}^3\text{/yr}$** over 342,000 km². Earlier versions of this file gave $-5.84$ mm/yr and $1.97$ km³/yr, which the CSV and Figure 3 do not support.
 * **Maiduguri–Borno pattern:** The trend map shows stronger drawdown (below $-11.8\text{ mm/yr}$) around Maiduguri. That is finer than GRACE can resolve (a few hundred kilometres), and pumping as the cause was not tested.
 * **Recharge delay (not reproduced):** The report describes a 2-month lag between peak rain in August and peak groundwater recovery in October. After detrending, the total, soil-moisture and groundwater columns in the CSV all peak in May, so this lag is not reproduced from the data here, and the analysis behind it is not in the repository.
-* **Ground Validation:** Satellite estimates matched observation borehole records closely, achieving a Kling-Gupta Efficiency ($\mathrm{KGE}$) of **$0.947$**, Nash-Sutcliffe Efficiency ($\mathrm{NSE}$) of **$0.966$**, and $\mathrm{RMSE}$ of **$7.43\text{ mm}$**.
+* **Borehole comparison (source unverified):** Against the `borehole_piezometric_mm` column the satellite series gives $\mathrm{KGE} = 0.947$, $\mathrm{NSE} = 0.966$ and $\mathrm{RMSE} = 7.43\text{ mm}$. These reproduce from the CSV, but the column has no documented source and is not shown to be independent in-situ data, so this is not a validation.
 ---
 
 ## Research Reflection
