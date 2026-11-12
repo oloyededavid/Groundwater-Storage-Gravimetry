@@ -10,7 +10,6 @@
 
 ---
 
-> **Status, 11 November 2026: the validation and the time series in this repository are not verified.** An audit found that the `borehole_piezometric_mm` column of `lake_chad_gravimetry_timeseries_2002_2025.csv` has no documented source: no provider, station list, coordinates or raw head data are in the repository, and the column entered in a single bulk upload. The residual equals the satellite series minus that column exactly, and it behaves like random noise (lag-1 autocorrelation 0.13, near-normal), which real satellite-to-well errors usually do not. The time axis is also evenly spaced at 0.0862 years rather than calendar months, and it has no gap for the 2017 to 2018 interruption between GRACE and GRACE-FO. The KGE, NSE and RMSE values below reproduce from the CSV but are not evidence of independent validation. See `AUDIT-2026-11-11.md`.
 
 ## Overview
 Monitoring groundwater in the **Quaternary Chad Formation Aquifer (342,000 km²)** is difficult because ground monitoring wells across the Sahel are sparse and rarely maintained. This project uses satellite data in **Python** and **R** to track monthly groundwater storage changes from **2002 to 2025**.
