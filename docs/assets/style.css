@@ -867,3 +867,18 @@ main p, main li { overflow-wrap: anywhere; }
 .gr-btn.gr-s3[aria-pressed="true"] { border-left: 6px dashed #d9500b; } .gr-btn.gr-s4[aria-pressed="true"] { border-left: 6px solid #2e7d32; }
 .gr-grid { stroke: #ececea; stroke-width: 1; } .gr-zero { stroke: #9a9a96; stroke-width: 1; }
 .gr-tick { font-size: 12px; fill: #555; }
+main img { height: auto; }
+.gr-chart { width: 100%; }
+.gr-chart svg { width: 100%; height: auto; max-width: 100%; }
+.gr-gap { fill: #eeeeec; }
+.gr-axis { font-size: 13px; fill: #444; }
+.gr-tick { font-size: 13px; }
+.gr-swatch { display: inline-block; width: 18px; height: 0; border-top: 3px solid; margin-right: 8px; vertical-align: middle; }
+.gr-swatch.gr-s1 { border-color: #1f56b0; } .gr-swatch.gr-s2 { border-color: #d9500b; } .gr-swatch.gr-s3 { border-top-style: dashed; border-color: #d9500b; } .gr-swatch.gr-s4 { border-color: #2e7d32; }
+.gr-btn { border-left-width: 1px !important; }
+.gr-btn[aria-pressed="false"] { border-color: #8a8f98; }
+.gr-legend-title { font-weight: 500; margin-right: 4px; }
+.gr-lake { fill: #111; stroke: #fff; stroke-width: 1.5; pointer-events: none; }
+.gr-lake-label { font-size: 15px; fill: #111; paint-order: stroke; stroke: #fff; stroke-width: 3px; pointer-events: none; }
+.gr-cell:focus { outline: none; stroke: #111; stroke-width: 3; }
+.gr-cells table { font-size: 15px; }

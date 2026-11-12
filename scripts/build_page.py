@@ -11,12 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 FIG = re.compile(r"!\[(\*\*Figure (\d+)\.\*\* )?(.*?)\]\(docs/(assets/figures/[^)]+)\)")
 
 EXPLORE = """<h3 id="explore">3.4 Explore the data</h3>
-<p>The map shows the storage trend of each 1-degree GRACE cell from 2002 to 2026. Select a cell, or use Tab, to read its value. The solid outline is the Lake Chad sink catchment and the dashed outline the larger level-3 unit. A 1-degree cell is finer than what GRACE resolves (a few hundred kilometres), so neighbouring cells are not independent.</p>
+<p>The map shows the straight-line storage trend of each 1-degree GRACE cell from 2002 to 2026. Select a cell to read its value; with a keyboard, press Tab to reach the map and use the arrow keys. The solid outline is the level-3 basin unit and the dashed outline the western level-4 unit. A 1-degree cell is finer than what GRACE resolves (a few hundred kilometres), so neighbouring cells are not independent.</p>
 <div id="gr-map" class="gr-map"></div>
-<div class="gr-legend"><span id="gr-lim-lo"></span><span id="gr-bar" class="gr-bar" aria-hidden="true"></span><span id="gr-lim-hi"></span></div>
-<p id="gr-readout" class="gr-readout" role="status">Select a cell for its trend.</p>
-<p>The chart shows the monthly series for the Lake Chad sink catchment. Use the buttons to show or hide each series. Lines break where GRACE has no month.</p>
-<div id="gr-toggles" class="gr-toggles" role="group" aria-label="Series"></div>
+<div class="gr-legend"><span class="gr-legend-title">Trend, mm per year</span><span id="gr-lim-lo"></span><span id="gr-bar" class="gr-bar" aria-hidden="true"></span><span id="gr-lim-hi"></span></div>
+<p id="gr-readout" class="gr-readout" role="status" aria-live="polite">Select a cell for its trend.</p>
+<details class="gr-cells"><summary>Show the cells in the basin unit as a table</summary><div id="gr-table"></div></details>
+<p>The chart shows the monthly series for the basin unit. Use the buttons to show or hide each series. Lines break where GRACE has no month.</p>
+<div id="gr-toggles" class="gr-toggles" role="group" aria-label="Series shown in the chart"></div>
 <div id="gr-chart" class="gr-chart"></div>
 """
 
@@ -54,7 +55,7 @@ def main():
                         "--template", str(ROOT / "scripts" / "page_template.html"), "-o", str(out),
                         "--metadata", f"pagetitle={meta.get('title', '')}", "--metadata", f"title={meta.get('title', '')}",
                         "--metadata", f"author={meta.get('author', '')}", "--metadata", f"date={meta.get('date', '')}",
-                        "--metadata", "description=GRACE water storage over the Lake Chad sink catchment, 2002-2026: trend, uncertainty and what is groundwater."],
+                        "--metadata", "description=GRACE water storage over the Lake Chad basin, 2002-2026: when it changed, by how much, and what is groundwater."],
                        check=True)
     finally:
         tmp.unlink(missing_ok=True)
