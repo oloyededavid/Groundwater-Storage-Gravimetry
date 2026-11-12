@@ -19,6 +19,8 @@ import pandas as pd
 import xarray as xr
 from shapely.geometry import shape
 
+import study
+
 ROOT = Path(__file__).resolve().parents[1]
 P = ROOT / "data" / "processed"
 FIG = ROOT / "docs" / "assets" / "figures"
@@ -39,7 +41,9 @@ def cell_trends():
     X = np.column_stack([np.ones_like(td), td - 2014, np.sin(2 * np.pi * td), np.cos(2 * np.pi * td),
                          np.sin(4 * np.pi * td), np.cos(4 * np.pi * td)])
     Y = sub.values.reshape(len(td), -1)
-    coef = np.linalg.lstsq(X, np.nan_to_num(Y), rcond=None)[0][1].reshape(sub.shape[1:])
+    coef = np.linalg.lstsq(X, np.nan_to_num(Y), rcond=None)[0][1]
+    coef[np.isnan(Y).any(axis=0)] = np.nan  # ocean and missing cells stay blank
+    coef = coef.reshape(sub.shape[1:])
     return sub.lat.values, sub.lon.values, coef, doms
 
 
@@ -49,24 +53,29 @@ def main():
     lat, lon, tr, doms = cell_trends()
     # Figure 1
     fig, ax = plt.subplots(figsize=(6.4, 5.2))
-    lim = np.nanmax(np.abs(tr))
-    m = ax.pcolormesh(lon, lat, tr, cmap="RdBu", vmin=-lim, vmax=lim, shading="nearest")
-    for f, ls, col in zip(doms["features"], ("-", "--"), (INK, GREY)):
+    lim = float(np.nanmax(np.abs(tr)))
+    m = ax.pcolormesh(lon, lat, np.ma.masked_invalid(tr), cmap="RdBu", vmin=-lim, vmax=lim, shading="nearest")
+    order = sorted(doms["features"], key=lambda f: f["properties"]["id"] != study.MAIN)
+    for f, ls, col in zip(order, ("-", "--"), (INK, GREY)):
         g = shape(f["geometry"])
         for poly in getattr(g, "geoms", [g]):
             x, y = poly.exterior.xy
             ax.plot(x, y, ls, color=col, lw=1.4)
     ax.plot(14.0, 13.2, "o", ms=4, color=INK)
-    ax.annotate("Lake Chad", (14.0, 13.2), xytext=(6, 4), textcoords="offset points", fontsize=9)
+    ax.annotate("Lake Chad (approximate)", (14.0, 13.2), xytext=(6, 4), textcoords="offset points", fontsize=9)
     ax.set_xlabel("Longitude (°E)"); ax.set_ylabel("Latitude (°N)"); ax.set_aspect("equal")
     cb = fig.colorbar(m, ax=ax, shrink=0.8); cb.set_label("Storage trend, 2002–2026 (mm per year)")
     fig.tight_layout(); fig.savefig(FIG / "fig1_area.png"); plt.close(fig)
     cells = [{"lat": float(a), "lon": float(o), "trend": None if not np.isfinite(tr[i, j]) else round(float(tr[i, j]), 1)}
              for i, a in enumerate(lat) for j, o in enumerate(lon)]
-    (DATA / "grace_cells.json").write_text(json.dumps({"cell_deg": 1.0, "cells": cells, "domains": doms}))
+    import grids
+    wmain = grids.weights(lat, lon, shape(next(f["geometry"] for f in doms["features"] if f["properties"]["id"] == study.MAIN)))
+    main_cells = [[float(a), float(o)] for i, a in enumerate(lat) for j, o in enumerate(lon) if wmain[i, j] > 0 and np.isfinite(tr[i, j])]
+    (DATA / "grace_cells.json").write_text(json.dumps({"cell_deg": 1.0, "cells": cells, "domains": doms, "main": study.MAIN,
+                                                       "lake": [14.0, 13.2], "main_cells": main_cells}))
     # Figure 2 and chart data
     s = pd.read_csv(P / "storage_monthly.csv")
-    p = s[s.domain == "primary"].copy()
+    p = s[s.domain == study.MAIN].copy()
     p["t"] = pd.PeriodIndex(p.month, freq="M").to_timestamp() + pd.Timedelta(days=14)
     fig, ax = plt.subplots(figsize=(7.2, 3.6))
     full = pd.DataFrame({"t": pd.period_range(p.month.iloc[0], p.month.iloc[-1], freq="M").to_timestamp() + pd.Timedelta(days=14)})
@@ -83,11 +92,11 @@ def main():
     fig.tight_layout(); fig.savefig(FIG / "fig2_monthly.png"); plt.close(fig)
     keep = ["month", "tws_mm_anom", "std_mm", "sm_gldas_anom", "sm_tc_anom", "res_gldas", "res_tc"]
     (DATA / "storage_monthly.json").write_text(json.dumps({
-        "note": "Lake Chad sink catchment (HydroBASINS level 4). Anomalies in mm from the 2004-2009 mean. Missing months are absent.",
+        "note": "Lake Chad basin unit (HydroBASINS level 3). Anomalies in mm from the 2004-2009 mean. Missing months are absent.",
         "rows": [{k: (None if pd.isna(v) else (round(float(v), 1) if k != "month" else v)) for k, v in r.items()}
                  for r in p[keep].to_dict("records")]}))
     # Figure 3
-    res = json.loads((DATA / "results.json").read_text())["areas"]["primary"]["series"]
+    res = json.loads((DATA / "results.json").read_text())["main"]
     yrs = [a["year"] for a in res["tws"]["annual"]]
     fig, ax = plt.subplots(figsize=(7.2, 3.2))
     x = np.arange(len(yrs))
