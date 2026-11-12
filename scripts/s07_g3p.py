@@ -1,6 +1,7 @@
 """Consistency check against G3P v1.12 (Guentner et al., 2024, doi:10.5880/G3P.2024.001; 0.5 degree, monthly,
-2002-04 to 2023-09). G3P is built from the same GRACE data, so agreement is a consistency check, not validation.
-Its surface-water layer gives an outside estimate of how much of the storage change sits in lakes and wetlands.
+2002-04 to 2023-09). G3P is built from an earlier release of the COST-G gravity combination (RL01; this study uses
+RL02), so agreement is a consistency check, not validation. Its groundwater layer is GRACE minus its own soil, snow,
+glacier and surface-water layers.
 
 Reads cache/g3p/G3P_v1.12.zip (download it from https://isdc-data.gfz.de/grace/GravIS/G3P/v1.12/).
 Writes data/processed/g3p_monthly.csv and adds a "g3p" block to docs/data/results.json.
@@ -17,6 +18,7 @@ import xarray as xr
 
 import grids
 import s05_storage as st
+import study
 
 ROOT = Path(__file__).resolve().parents[1]
 ZIP = ROOT / "cache" / "g3p" / "G3P_v1.12.zip"
@@ -65,30 +67,26 @@ def main():
     ours = pd.read_csv(ROOT / "data" / "processed" / "storage_monthly.csv")
     res = json.loads(RES.read_text())
     out = {}
-    for dom in ("primary", "sensitivity"):
+    for dom in study.AREAS:
         a = ours[ours.domain == dom].merge(df[df.domain == dom], on="month", how="inner")
         yrs = pd.PeriodIndex(a.month, freq="M").year
-        ref = (yrs >= 2004) & (yrs <= 2009)
+        ref = (yrs >= study.BASELINE[0]) & (yrs <= study.BASELINE[1])
         for c in ("gwsa", "sws", "rzsm", "tws"):
             a[c] = a[c] - a.loc[ref, c].mean()
-        a["g3p_gw_plus_sw"] = a.gwsa + a.sws
-        a["ours_minus_g3p_sws"] = a.res_gldas - a.sws
-        t = st.tdec(a.month)
         block = {"months_in_common": int(len(a)), "first": a.month.iloc[0], "last": a.month.iloc[-1]}
         for name, col in (("our_tws", "tws_mm_anom"), ("g3p_tws", "tws"), ("our_residual_gldas", "res_gldas"),
-                          ("g3p_groundwater", "gwsa"), ("g3p_surface_water", "sws"), ("g3p_groundwater_plus_surface_water", "g3p_gw_plus_sw"),
-                          ("our_residual_minus_g3p_surface_water", "ours_minus_g3p_sws")):
-            block[name] = st.trend(t, a[col].to_numpy(float))
-        ok = a[["res_gldas", "g3p_gw_plus_sw"]].dropna()
-        block["corr_residual_vs_g3p_gw_plus_sw"] = round(float(np.corrcoef(ok.res_gldas, ok.g3p_gw_plus_sw)[0, 1]), 3)
+                          ("g3p_groundwater", "gwsa"), ("g3p_surface_water", "sws")):
+            block[name] = st.rate(a.month.to_numpy(), a[col].to_numpy(float))
+        ok = a[["res_gldas", "gwsa"]].dropna()
+        block["corr_residual_vs_g3p_groundwater"] = round(float(np.corrcoef(ok.res_gldas, ok.gwsa)[0, 1]), 3)
         ok = a[["tws_mm_anom", "tws"]].dropna()
         block["corr_tws_vs_g3p_tws"] = round(float(np.corrcoef(ok.tws_mm_anom, ok.tws)[0, 1]), 3)
         block["g3p_surface_water_range_mm"] = [round(float(a.sws.min()), 1), round(float(a.sws.max()), 1)]
         out[dom] = block
     res["g3p"] = out
     RES.write_text(json.dumps(res, indent=1))
-    p = out["primary"]
-    print({k: (v["trend_mm_yr"] if isinstance(v, dict) else v) for k, v in p.items()})
+    p = out[study.MAIN]
+    print({k: (v["rate_mm_yr"], v["annual_amplitude_mm"]) if isinstance(v, dict) else v for k, v in p.items()})
 
 
 if __name__ == "__main__":
