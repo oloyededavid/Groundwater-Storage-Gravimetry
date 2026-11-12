@@ -1,2770 +1,1093 @@
 {
+ "baseline": "2004-2009",
+ "main_area": "lev3",
+ "alt_area": "lev4_west",
+ "main_solution": "costg",
  "areas": {
-  "primary": {
-   "area_km2": 248870,
-   "km3_per_mm": 0.2489,
-   "series": {
-    "tws": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 16.25,
-       "se_plain": 0.58,
-       "lag1_autocorr": 0.946,
-       "n_months": 259,
-       "n_eff": 7.2,
-       "ci95_ar1": [
-        1.22,
-        31.29
-       ],
-       "ci95_block_bootstrap": [
-        11.94,
-        20.49
-       ],
-       "annual_amplitude_mm": 61.8,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.121
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 4.83,
-       "se_plain": 0.42,
-       "lag1_autocorr": 0.6,
-       "n_months": 163,
-       "n_eff": 40.8,
-       "ci95_ar1": [
-        3.13,
-        6.54
-       ],
-       "ci95_block_bootstrap": [
-        2.77,
-        6.93
-       ],
-       "annual_amplitude_mm": 52.4,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.282
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 48.67,
-       "se_plain": 1.73,
-       "lag1_autocorr": 0.789,
-       "n_months": 96,
-       "n_eff": 11.3,
-       "ci95_ar1": [
-        35.96,
-        61.37
-       ],
-       "ci95_block_bootstrap": [
-        42.54,
-        54.74
-       ],
-       "annual_amplitude_mm": 75.3,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.64
-      },
-      "2002-2021": {
-       "trend_mm_yr": 9.03,
-       "se_plain": 0.42,
-       "lag1_autocorr": 0.833,
-       "n_months": 204,
-       "n_eff": 18.6,
-       "ci95_ar1": [
-        5.98,
-        12.07
-       ],
-       "ci95_block_bootstrap": [
-        6.52,
-        11.56
-       ],
-       "annual_amplitude_mm": 57.9,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.175
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 3.9,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 8.2,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 5.7,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -8.2,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -4.6,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 5.8,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 9.5,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -8.2,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -1.0,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 14.4,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 28.2,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 42.2,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 62.0,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 36.6,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 47.8,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 32.6,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 80.5,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 103.6,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 167.0,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 189.4,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 221.0,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 281.3,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 333.6,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 428.9,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 376.0,
-       "months": 7
-      }
-     ]
-    },
-    "soil_gldas": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 0.39,
-       "se_plain": 0.14,
-       "lag1_autocorr": 0.637,
-       "n_months": 259,
-       "n_eff": 57.4,
-       "ci95_ar1": [
-        -0.21,
-        0.98
-       ],
-       "ci95_block_bootstrap": [
-        -0.26,
-        1.02
-       ],
-       "annual_amplitude_mm": 61.0,
-       "first": "2002-04",
-       "last": "2026-07"
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": -1.32,
-       "se_plain": 0.28,
-       "lag1_autocorr": 0.584,
-       "n_months": 163,
-       "n_eff": 42.8,
-       "ci95_ar1": [
-        -2.43,
-        -0.22
-       ],
-       "ci95_block_bootstrap": [
-        -2.13,
-        -0.55
-       ],
-       "annual_amplitude_mm": 58.3,
-       "first": "2002-04",
-       "last": "2017-06"
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 1.78,
-       "se_plain": 0.63,
-       "lag1_autocorr": 0.513,
-       "n_months": 96,
-       "n_eff": 30.9,
-       "ci95_ar1": [
-        -0.5,
-        4.06
-       ],
-       "ci95_block_bootstrap": [
-        0.5,
-        3.22
-       ],
-       "annual_amplitude_mm": 65.0,
-       "first": "2018-06",
-       "last": "2026-07"
-      },
-      "2002-2021": {
-       "trend_mm_yr": -0.23,
-       "se_plain": 0.19,
-       "lag1_autocorr": 0.63,
-       "n_months": 204,
-       "n_eff": 46.3,
-       "ci95_ar1": [
-        -1.04,
-        0.58
-       ],
-       "ci95_block_bootstrap": [
-        -1.04,
-        0.62
-       ],
-       "annual_amplitude_mm": 59.5,
-       "first": "2002-04",
-       "last": "2021-12"
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 9.3,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 8.5,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": -3.3,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": 1.0,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": 2.0,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 7.2,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 0.4,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -7.3,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": 5.3,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": -8.6,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 1.1,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": -17.9,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": -12.6,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": -32.0,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -21.6,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -45.3,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": -1.7,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 3.6,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 11.8,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": -1.8,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 8.5,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 8.9,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 10.0,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 13.6,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": -21.8,
-       "months": 7
-      }
-     ]
-    },
-    "soil_terraclimate": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 0.08,
-       "se_plain": 0.07,
-       "lag1_autocorr": 0.192,
-       "n_months": 204,
-       "n_eff": 138.1,
-       "ci95_ar1": [
-        -0.09,
-        0.26
-       ],
-       "ci95_block_bootstrap": [
-        -0.05,
-        0.23
-       ],
-       "annual_amplitude_mm": 15.8,
-       "first": "2002-04",
-       "last": "2021-12"
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 0.04,
-       "se_plain": 0.11,
-       "lag1_autocorr": 0.195,
-       "n_months": 163,
-       "n_eff": 109.7,
-       "ci95_ar1": [
-        -0.23,
-        0.32
-       ],
-       "ci95_block_bootstrap": [
-        -0.14,
-        0.22
-       ],
-       "annual_amplitude_mm": 15.6,
-       "first": "2002-04",
-       "last": "2017-06"
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": -1.96,
-       "se_plain": 0.79,
-       "lag1_autocorr": -0.045,
-       "n_months": 41,
-       "n_eff": 41.0,
-       "ci95_ar1": [
-        -3.57,
-        -0.36
-       ],
-       "ci95_block_bootstrap": [
-        -2.65,
-        -1.42
-       ],
-       "annual_amplitude_mm": 16.9,
-       "first": "2018-06",
-       "last": "2021-12"
-      },
-      "2002-2021": {
-       "trend_mm_yr": 0.08,
-       "se_plain": 0.07,
-       "lag1_autocorr": 0.192,
-       "n_months": 204,
-       "n_eff": 138.1,
-       "ci95_ar1": [
-        -0.09,
-        0.26
-       ],
-       "ci95_block_bootstrap": [
-        -0.05,
-        0.22
-       ],
-       "annual_amplitude_mm": 15.8,
-       "first": "2002-04",
-       "last": "2021-12"
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 2.8,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 3.0,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": -2.4,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": 4.5,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -0.3,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": -0.9,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 0.8,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -1.7,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": 2.0,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 0.7,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 5.3,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": -4.9,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 0.9,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": -0.5,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -0.3,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -6.4,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 6.2,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 4.5,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 1.1,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": -0.1,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2023,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2024,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2025,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2026,
-       "mean_mm": null,
-       "months": 0
-      }
-     ]
-    },
-    "residual_gldas": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 15.87,
-       "se_plain": 0.53,
-       "lag1_autocorr": 0.948,
-       "n_months": 259,
-       "n_eff": 6.9,
-       "ci95_ar1": [
-        1.98,
-        29.76
-       ],
-       "ci95_block_bootstrap": [
-        12.1,
-        19.64
-       ],
-       "annual_amplitude_mm": 30.7,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.118
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 6.16,
-       "se_plain": 0.4,
-       "lag1_autocorr": 0.648,
-       "n_months": 163,
-       "n_eff": 34.8,
-       "ci95_ar1": [
-        4.37,
-        7.95
-       ],
-       "ci95_block_bootstrap": [
-        3.75,
-        8.63
-       ],
-       "annual_amplitude_mm": 26.0,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.29
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 46.89,
-       "se_plain": 1.46,
-       "lag1_autocorr": 0.772,
-       "n_months": 96,
-       "n_eff": 12.4,
-       "ci95_ar1": [
-        37.07,
-        56.71
-       ],
-       "ci95_block_bootstrap": [
-        41.3,
-        52.72
-       ],
-       "annual_amplitude_mm": 40.6,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.632
-      },
-      "2002-2021": {
-       "trend_mm_yr": 9.26,
-       "se_plain": 0.37,
-       "lag1_autocorr": 0.817,
-       "n_months": 204,
-       "n_eff": 20.6,
-       "ci95_ar1": [
-        6.79,
-        11.72
-       ],
-       "ci95_block_bootstrap": [
-        7.14,
-        11.31
-       ],
-       "annual_amplitude_mm": 28.3,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.179
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": -5.4,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": -0.4,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 9.1,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -9.2,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -6.7,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": -1.4,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 9.1,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -0.8,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -6.3,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 23.0,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 27.1,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 60.0,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 74.6,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 68.6,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 69.4,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 77.9,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 82.2,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 99.9,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 155.2,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 191.2,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 212.5,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 272.4,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 323.6,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 415.2,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 397.8,
-       "months": 7
-      }
-     ]
-    },
-    "residual_terraclimate": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 8.94,
-       "se_plain": 0.42,
-       "lag1_autocorr": 0.845,
-       "n_months": 204,
-       "n_eff": 17.2,
-       "ci95_ar1": [
-        5.75,
-        12.14
-       ],
-       "ci95_block_bootstrap": [
-        6.4,
-        11.39
-       ],
-       "annual_amplitude_mm": 47.0,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.186
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 4.79,
-       "se_plain": 0.41,
-       "lag1_autocorr": 0.623,
-       "n_months": 163,
-       "n_eff": 37.9,
-       "ci95_ar1": [
-        3.05,
-        6.53
-       ],
-       "ci95_block_bootstrap": [
-        2.71,
-        6.84
-       ],
-       "annual_amplitude_mm": 41.6,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.292
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 46.01,
-       "se_plain": 3.85,
-       "lag1_autocorr": 0.611,
-       "n_months": 41,
-       "n_eff": 9.9,
-       "ci95_ar1": [
-        24.02,
-        68.01
-       ],
-       "ci95_block_bootstrap": [
-        39.22,
-        57.18
-       ],
-       "annual_amplitude_mm": 54.1,
-       "first": "2018-06",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 2.385
-      },
-      "2002-2021": {
-       "trend_mm_yr": 8.94,
-       "se_plain": 0.42,
-       "lag1_autocorr": 0.845,
-       "n_months": 204,
-       "n_eff": 17.2,
-       "ci95_ar1": [
-        5.75,
-        12.14
-       ],
-       "ci95_block_bootstrap": [
-        6.37,
-        11.33
-       ],
-       "annual_amplitude_mm": 47.0,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.176
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 1.0,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 5.1,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 8.1,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -12.8,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -4.4,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 6.7,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 8.7,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -6.4,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -3.0,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 13.7,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 22.9,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 47.1,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 61.1,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 37.1,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 48.1,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 39.0,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 74.2,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 99.0,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 165.9,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 189.5,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2023,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2024,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2025,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2026,
-       "mean_mm": null,
-       "months": 0
-      }
-     ]
-    },
-    "residual_gldas_leakage_removed": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 23.35,
-       "se_plain": 0.92,
-       "lag1_autocorr": 0.929,
-       "n_months": 259,
-       "n_eff": 9.5,
-       "ci95_ar1": [
-        9.2,
-        37.5
-       ],
-       "ci95_block_bootstrap": [
-        16.65,
-        29.81
-       ],
-       "annual_amplitude_mm": 34.0,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.12
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 6.46,
-       "se_plain": 0.78,
-       "lag1_autocorr": 0.57,
-       "n_months": 163,
-       "n_eff": 44.6,
-       "ci95_ar1": [
-        3.45,
-        9.48
-       ],
-       "ci95_block_bootstrap": [
-        2.14,
-        10.85
-       ],
-       "annual_amplitude_mm": 23.9,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.277
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 76.99,
-       "se_plain": 2.51,
-       "lag1_autocorr": 0.699,
-       "n_months": 96,
-       "n_eff": 17.0,
-       "ci95_ar1": [
-        63.85,
-        90.14
-       ],
-       "ci95_block_bootstrap": [
-        68.5,
-        85.83
-       ],
-       "annual_amplitude_mm": 51.9,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.632
-      },
-      "2002-2021": {
-       "trend_mm_yr": 11.77,
-       "se_plain": 0.65,
-       "lag1_autocorr": 0.752,
-       "n_months": 204,
-       "n_eff": 28.9,
-       "ci95_ar1": [
-        8.21,
-        15.33
-       ],
-       "ci95_block_bootstrap": [
-        8.05,
-        15.54
-       ],
-       "annual_amplitude_mm": 27.6,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.177
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": -8.6,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 12.5,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 21.1,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -13.0,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": 4.1,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": -0.7,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 6.5,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -18.1,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -36.1,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 9.5,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 8.0,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 66.3,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 90.6,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 62.4,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 89.6,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 115.6,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 94.3,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 121.8,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 204.4,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 262.9,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 305.8,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 404.6,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 471.3,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 647.6,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 606.8,
-       "months": 7
-      }
-     ]
-    }
-   }
-  },
-  "sensitivity": {
+  "lev3": {
+   "name": "Lake Chad basin unit (HydroBASINS level 3)",
    "area_km2": 1119893,
-   "km3_per_mm": 1.1199,
-   "series": {
-    "tws": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 9.97,
-       "se_plain": 0.49,
-       "lag1_autocorr": 0.942,
-       "n_months": 259,
-       "n_eff": 7.7,
-       "ci95_ar1": [
-        -2.15,
-        22.09
-       ],
-       "ci95_block_bootstrap": [
-        6.46,
-        13.66
-       ],
-       "annual_amplitude_mm": 104.0,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.118
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 0.73,
-       "se_plain": 0.43,
-       "lag1_autocorr": 0.713,
-       "n_months": 163,
-       "n_eff": 27.4,
-       "ci95_ar1": [
-        -1.46,
-        2.91
-       ],
-       "ci95_block_bootstrap": [
-        -1.09,
-        2.61
-       ],
-       "annual_amplitude_mm": 93.8,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.28
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 36.35,
-       "se_plain": 1.49,
-       "lag1_autocorr": 0.81,
-       "n_months": 96,
-       "n_eff": 10.0,
-       "ci95_ar1": [
-        23.66,
-        49.04
-       ],
-       "ci95_block_bootstrap": [
-        32.8,
-        39.87
-       ],
-       "annual_amplitude_mm": 119.1,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.624
-      },
-      "2002-2021": {
-       "trend_mm_yr": 4.01,
-       "se_plain": 0.41,
-       "lag1_autocorr": 0.851,
-       "n_months": 204,
-       "n_eff": 16.4,
-       "ci95_ar1": [
-        0.85,
-        7.17
-       ],
-       "ci95_block_bootstrap": [
-        1.81,
-        6.37
-       ],
-       "annual_amplitude_mm": 99.5,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.178
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 22.7,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 17.8,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 5.5,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -1.0,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -8.4,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 6.1,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 13.0,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -15.2,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -6.8,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": -4.6,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 6.0,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 9.9,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 36.4,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": -4.8,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -14.7,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -55.3,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 26.4,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 31.6,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 95.5,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 107.4,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 144.0,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 179.6,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 220.3,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 273.1,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 201.1,
-       "months": 7
-      }
-     ]
-    },
-    "soil_gldas": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 0.15,
-       "se_plain": 0.15,
-       "lag1_autocorr": 0.663,
-       "n_months": 259,
-       "n_eff": 52.4,
-       "ci95_ar1": [
-        -0.51,
-        0.8
-       ],
-       "ci95_block_bootstrap": [
-        -0.57,
-        0.86
-       ],
-       "annual_amplitude_mm": 79.2,
-       "first": "2002-04",
-       "last": "2026-07"
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": -1.39,
-       "se_plain": 0.31,
-       "lag1_autocorr": 0.604,
-       "n_months": 163,
-       "n_eff": 40.3,
-       "ci95_ar1": [
-        -2.67,
-        -0.1
-       ],
-       "ci95_block_bootstrap": [
-        -2.59,
-        -0.36
-       ],
-       "annual_amplitude_mm": 77.3,
-       "first": "2002-04",
-       "last": "2017-06"
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 0.53,
-       "se_plain": 0.65,
-       "lag1_autocorr": 0.649,
-       "n_months": 96,
-       "n_eff": 20.4,
-       "ci95_ar1": [
-        -2.47,
-        3.53
-       ],
-       "ci95_block_bootstrap": [
-        -1.15,
-        2.37
-       ],
-       "annual_amplitude_mm": 81.6,
-       "first": "2018-06",
-       "last": "2026-07"
-      },
-      "2002-2021": {
-       "trend_mm_yr": -0.29,
-       "se_plain": 0.21,
-       "lag1_autocorr": 0.659,
-       "n_months": 204,
-       "n_eff": 41.9,
-       "ci95_ar1": [
-        -1.24,
-        0.66
-       ],
-       "ci95_block_bootstrap": [
-        -1.28,
-        0.68
-       ],
-       "annual_amplitude_mm": 78.4,
-       "first": "2002-04",
-       "last": "2021-12"
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 10.8,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 7.1,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": -5.7,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": 3.3,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": 9.6,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 6.6,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 4.0,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -17.8,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -2.6,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": -4.9,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 4.2,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": -17.9,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": -18.1,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": -37.2,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -23.1,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -59.2,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": -4.8,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 2.7,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 8.4,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 0.1,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 14.8,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 0.7,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": -0.9,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 3.3,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": -35.9,
-       "months": 7
-      }
-     ]
-    },
-    "soil_terraclimate": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": -0.28,
-       "se_plain": 0.15,
-       "lag1_autocorr": 0.509,
-       "n_months": 204,
-       "n_eff": 66.4,
-       "ci95_ar1": [
-        -0.79,
-        0.24
-       ],
-       "ci95_block_bootstrap": [
-        -0.72,
-        0.16
-       ],
-       "annual_amplitude_mm": 40.2,
-       "first": "2002-04",
-       "last": "2021-12"
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 0.55,
-       "se_plain": 0.2,
-       "lag1_autocorr": 0.358,
-       "n_months": 163,
-       "n_eff": 77.0,
-       "ci95_ar1": [
-        -0.04,
-        1.14
-       ],
-       "ci95_block_bootstrap": [
-        0.09,
-        1.0
-       ],
-       "annual_amplitude_mm": 42.9,
-       "first": "2002-04",
-       "last": "2017-06"
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": -3.87,
-       "se_plain": 1.56,
-       "lag1_autocorr": 0.487,
-       "n_months": 41,
-       "n_eff": 14.2,
-       "ci95_ar1": [
-        -9.97,
-        2.24
-       ],
-       "ci95_block_bootstrap": [
-        -6.1,
-        -0.24
-       ],
-       "annual_amplitude_mm": 31.2,
-       "first": "2018-06",
-       "last": "2021-12"
-      },
-      "2002-2021": {
-       "trend_mm_yr": -0.28,
-       "se_plain": 0.15,
-       "lag1_autocorr": 0.509,
-       "n_months": 204,
-       "n_eff": 66.4,
-       "ci95_ar1": [
-        -0.79,
-        0.24
-       ],
-       "ci95_block_bootstrap": [
-        -0.71,
-        0.16
-       ],
-       "annual_amplitude_mm": 40.2,
-       "first": "2002-04",
-       "last": "2021-12"
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 1.1,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": -1.6,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": -9.1,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": 2.5,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": 3.5,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 5.2,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 3.0,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -5.2,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": 6.8,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 2.4,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 7.1,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": -8.6,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 3.3,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 3.5,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -5.7,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -26.1,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 0.8,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": -6.9,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": -4.1,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": -15.7,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2023,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2024,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2025,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2026,
-       "mean_mm": null,
-       "months": 0
-      }
-     ]
-    },
-    "residual_gldas": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 9.83,
-       "se_plain": 0.44,
-       "lag1_autocorr": 0.956,
-       "n_months": 259,
-       "n_eff": 5.8,
-       "ci95_ar1": [
-        -2.85,
-        22.5
-       ],
-       "ci95_block_bootstrap": [
-        6.65,
-        13.07
-       ],
-       "annual_amplitude_mm": 49.3,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.119
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 2.11,
-       "se_plain": 0.41,
-       "lag1_autocorr": 0.783,
-       "n_months": 163,
-       "n_eff": 19.9,
-       "ci95_ar1": [
-        -0.39,
-        4.62
-       ],
-       "ci95_block_bootstrap": [
-        0.01,
-        4.18
-       ],
-       "annual_amplitude_mm": 42.4,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.278
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 35.82,
-       "se_plain": 1.21,
-       "lag1_autocorr": 0.843,
-       "n_months": 96,
-       "n_eff": 8.2,
-       "ci95_ar1": [
-        19.18,
-        52.46
-       ],
-       "ci95_block_bootstrap": [
-        32.42,
-        39.46
-       ],
-       "annual_amplitude_mm": 61.3,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.629
-      },
-      "2002-2021": {
-       "trend_mm_yr": 4.3,
-       "se_plain": 0.34,
-       "lag1_autocorr": 0.868,
-       "n_months": 204,
-       "n_eff": 14.5,
-       "ci95_ar1": [
-        1.38,
-        7.22
-       ],
-       "ci95_block_bootstrap": [
-        2.63,
-        6.04
-       ],
-       "annual_amplitude_mm": 46.0,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.175
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 12.0,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 10.7,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 11.2,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -4.3,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -18.0,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": -0.5,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 9.0,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": 2.6,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -4.3,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 0.3,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 1.7,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 27.8,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 54.4,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 32.4,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 8.3,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 3.9,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 31.2,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 28.9,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 87.2,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 107.2,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 129.2,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 178.9,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 221.1,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 269.8,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 237.0,
-       "months": 7
-      }
-     ]
-    },
-    "residual_terraclimate": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 4.29,
-       "se_plain": 0.44,
-       "lag1_autocorr": 0.87,
-       "n_months": 204,
-       "n_eff": 14.1,
-       "ci95_ar1": [
-        0.46,
-        8.12
-       ],
-       "ci95_block_bootstrap": [
-        1.78,
-        6.74
-       ],
-       "annual_amplitude_mm": 67.6,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.186
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 0.18,
-       "se_plain": 0.43,
-       "lag1_autocorr": 0.689,
-       "n_months": 163,
-       "n_eff": 30.0,
-       "ci95_ar1": [
-        -1.89,
-        2.24
-       ],
-       "ci95_block_bootstrap": [
-        -1.71,
-        2.09
-       ],
-       "annual_amplitude_mm": 60.4,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.279
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 42.83,
-       "se_plain": 3.82,
-       "lag1_autocorr": 0.743,
-       "n_months": 41,
-       "n_eff": 6.1,
-       "ci95_ar1": [
-        0.09,
-        85.56
-       ],
-       "ci95_block_bootstrap": [
-        35.55,
-        52.42
-       ],
-       "annual_amplitude_mm": 82.8,
-       "first": "2018-06",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 2.411
-      },
-      "2002-2021": {
-       "trend_mm_yr": 4.29,
-       "se_plain": 0.44,
-       "lag1_autocorr": 0.87,
-       "n_months": 204,
-       "n_eff": 14.1,
-       "ci95_ar1": [
-        0.46,
-        8.12
-       ],
-       "ci95_block_bootstrap": [
-        1.94,
-        6.78
-       ],
-       "annual_amplitude_mm": 67.6,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.171
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 21.6,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 19.4,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 14.6,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -3.6,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -11.9,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 0.9,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 10.0,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": -10.0,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -13.6,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": -7.0,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": -1.1,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 18.4,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 33.1,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": -8.3,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": -9.0,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": -29.2,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 25.6,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 38.6,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 99.7,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 123.0,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2023,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2024,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2025,
-       "mean_mm": null,
-       "months": 0
-      },
-      {
-       "year": 2026,
-       "mean_mm": null,
-       "months": 0
-      }
-     ]
-    },
-    "residual_gldas_leakage_removed": {
-     "trends": {
-      "2002-2026": {
-       "trend_mm_yr": 13.13,
-       "se_plain": 0.63,
-       "lag1_autocorr": 0.953,
-       "n_months": 259,
-       "n_eff": 6.2,
-       "ci95_ar1": [
-        -4.28,
-        30.53
-       ],
-       "ci95_block_bootstrap": [
-        8.63,
-        17.66
-       ],
-       "annual_amplitude_mm": 54.7,
-       "first": "2002-04",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.12
-      },
-      "2002-2017 (GRACE)": {
-       "trend_mm_yr": 1.93,
-       "se_plain": 0.52,
-       "lag1_autocorr": 0.758,
-       "n_months": 163,
-       "n_eff": 22.5,
-       "ci95_ar1": [
-        -1.03,
-        4.89
-       ],
-       "ci95_block_bootstrap": [
-        -0.38,
-        4.2
-       ],
-       "annual_amplitude_mm": 44.2,
-       "first": "2002-04",
-       "last": "2017-06",
-       "grace_error_sd_mm_yr": 0.294
-      },
-      "2018-2026 (GRACE-FO)": {
-       "trend_mm_yr": 49.32,
-       "se_plain": 1.86,
-       "lag1_autocorr": 0.825,
-       "n_months": 96,
-       "n_eff": 9.2,
-       "ci95_ar1": [
-        30.87,
-        67.77
-       ],
-       "ci95_block_bootstrap": [
-        44.42,
-        54.33
-       ],
-       "annual_amplitude_mm": 72.7,
-       "first": "2018-06",
-       "last": "2026-07",
-       "grace_error_sd_mm_yr": 0.626
-      },
-      "2002-2021": {
-       "trend_mm_yr": 5.27,
-       "se_plain": 0.45,
-       "lag1_autocorr": 0.855,
-       "n_months": 204,
-       "n_eff": 16.0,
-       "ci95_ar1": [
-        1.7,
-        8.84
-       ],
-       "ci95_block_bootstrap": [
-        3.23,
-        7.48
-       ],
-       "annual_amplitude_mm": 49.6,
-       "first": "2002-04",
-       "last": "2021-12",
-       "grace_error_sd_mm_yr": 0.186
-      }
-     },
-     "annual": [
-      {
-       "year": 2002,
-       "mean_mm": 12.1,
-       "months": 7
-      },
-      {
-       "year": 2003,
-       "mean_mm": 18.2,
-       "months": 11
-      },
-      {
-       "year": 2004,
-       "mean_mm": 13.1,
-       "months": 12
-      },
-      {
-       "year": 2005,
-       "mean_mm": -5.7,
-       "months": 12
-      },
-      {
-       "year": 2006,
-       "mean_mm": -15.2,
-       "months": 12
-      },
-      {
-       "year": 2007,
-       "mean_mm": 0.4,
-       "months": 12
-      },
-      {
-       "year": 2008,
-       "mean_mm": 6.5,
-       "months": 12
-      },
-      {
-       "year": 2009,
-       "mean_mm": 0.9,
-       "months": 12
-      },
-      {
-       "year": 2010,
-       "mean_mm": -0.7,
-       "months": 12
-      },
-      {
-       "year": 2011,
-       "mean_mm": 2.9,
-       "months": 10
-      },
-      {
-       "year": 2012,
-       "mean_mm": 5.2,
-       "months": 10
-      },
-      {
-       "year": 2013,
-       "mean_mm": 41.7,
-       "months": 9
-      },
-      {
-       "year": 2014,
-       "mean_mm": 57.8,
-       "months": 9
-      },
-      {
-       "year": 2015,
-       "mean_mm": 24.6,
-       "months": 9
-      },
-      {
-       "year": 2016,
-       "mean_mm": 4.2,
-       "months": 9
-      },
-      {
-       "year": 2017,
-       "mean_mm": 0.0,
-       "months": 5
-      },
-      {
-       "year": 2018,
-       "mean_mm": 38.7,
-       "months": 5
-      },
-      {
-       "year": 2019,
-       "mean_mm": 44.1,
-       "months": 12
-      },
-      {
-       "year": 2020,
-       "mean_mm": 111.7,
-       "months": 12
-      },
-      {
-       "year": 2021,
-       "mean_mm": 134.8,
-       "months": 12
-      },
-      {
-       "year": 2022,
-       "mean_mm": 171.3,
-       "months": 12
-      },
-      {
-       "year": 2023,
-       "mean_mm": 244.5,
-       "months": 12
-      },
-      {
-       "year": 2024,
-       "mean_mm": 286.3,
-       "months": 12
-      },
-      {
-       "year": 2025,
-       "mean_mm": 377.8,
-       "months": 12
-      },
-      {
-       "year": 2026,
-       "mean_mm": 328.0,
-       "months": 7
-      }
-     ]
-    }
-   }
+   "hybas_id": 1030040190,
+   "km3_per_mm": 1.1199
+  },
+  "lev4_west": {
+   "name": "Western level-4 unit draining into Lake Chad's terminal unit",
+   "area_km2": 248870,
+   "hybas_id": 1040695300,
+   "km3_per_mm": 0.2489
   }
  },
- "notes": {},
+ "main": {
+  "tws": {
+   "full": {
+    "rate_mm_yr": 9.09,
+    "ci95": [
+     4.24,
+     13.94
+    ],
+    "se": 2.46,
+    "phi": 0.949,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 102.0,
+    "grace_error_sd_lower_bound": 0.113
+   },
+   "periods": {
+    "2002-2010": {
+     "rate_mm_yr": -0.94,
+     "ci95": [
+      -4.84,
+      2.97
+     ],
+     "se": 1.97,
+     "phi": 0.73,
+     "n_months": 102,
+     "first": "2002-04",
+     "last": "2010-12",
+     "annual_amplitude_mm": 92.7
+    },
+    "2011-2017": {
+     "rate_mm_yr": 1.49,
+     "ci95": [
+      -7.02,
+      9.99
+     ],
+     "se": 4.25,
+     "phi": 0.786,
+     "n_months": 61,
+     "first": "2011-02",
+     "last": "2017-06",
+     "annual_amplitude_mm": 96.5
+    },
+    "2018-2026 (GRACE-FO)": {
+     "rate_mm_yr": 33.54,
+     "ci95": [
+      25.39,
+      41.68
+     ],
+     "se": 4.1,
+     "phi": 0.827,
+     "n_months": 96,
+     "first": "2018-06",
+     "last": "2026-07",
+     "annual_amplitude_mm": 115.5
+    }
+   },
+   "end_dates": {
+    "2021-12": {
+     "rate_mm_yr": 3.51,
+     "ci95": [
+      0.76,
+      6.26
+     ],
+     "se": 1.39,
+     "phi": 0.877,
+     "n_months": 204,
+     "first": "2002-04",
+     "last": "2021-12",
+     "annual_amplitude_mm": 98.0
+    },
+    "2023-12": {
+     "rate_mm_yr": 5.99,
+     "ci95": [
+      2.39,
+      9.6
+     ],
+     "se": 1.83,
+     "phi": 0.918,
+     "n_months": 228,
+     "first": "2002-04",
+     "last": "2023-12",
+     "annual_amplitude_mm": 99.7
+    },
+    "2026-12": {
+     "rate_mm_yr": 9.09,
+     "ci95": [
+      4.24,
+      13.94
+     ],
+     "se": 2.46,
+     "phi": 0.949,
+     "n_months": 259,
+     "first": "2002-04",
+     "last": "2026-07",
+     "annual_amplitude_mm": 102.0
+    }
+   },
+   "hinge": {
+    "break": "2018-10",
+    "break_range": [
+     2018.5,
+     2019.0
+    ],
+    "delta_aic_vs_single_line": -350.4,
+    "rate_before": 0.88,
+    "ci95_before": [
+     -1.38,
+     3.14
+    ],
+    "rate_after": 34.84,
+    "ci95_after": [
+     29.45,
+     40.24
+    ]
+   },
+   "mission_step": {
+    "step_mm": -21.2,
+    "ci95": [
+     -64.8,
+     22.4
+    ],
+    "rate_grace": 0.7,
+    "rate_gracefo": 33.89
+   },
+   "annual": [
+    {
+     "year": 2002,
+     "mean_mm": 22.7,
+     "months": 7
+    },
+    {
+     "year": 2003,
+     "mean_mm": 17.8,
+     "months": 11
+    },
+    {
+     "year": 2004,
+     "mean_mm": 5.5,
+     "months": 12
+    },
+    {
+     "year": 2005,
+     "mean_mm": -1.0,
+     "months": 12
+    },
+    {
+     "year": 2006,
+     "mean_mm": -8.4,
+     "months": 12
+    },
+    {
+     "year": 2007,
+     "mean_mm": 6.1,
+     "months": 12
+    },
+    {
+     "year": 2008,
+     "mean_mm": 13.0,
+     "months": 12
+    },
+    {
+     "year": 2009,
+     "mean_mm": -15.2,
+     "months": 12
+    },
+    {
+     "year": 2010,
+     "mean_mm": -6.8,
+     "months": 12
+    },
+    {
+     "year": 2011,
+     "mean_mm": -4.6,
+     "months": 10
+    },
+    {
+     "year": 2012,
+     "mean_mm": 6.0,
+     "months": 10
+    },
+    {
+     "year": 2013,
+     "mean_mm": 9.9,
+     "months": 9
+    },
+    {
+     "year": 2014,
+     "mean_mm": 36.4,
+     "months": 9
+    },
+    {
+     "year": 2015,
+     "mean_mm": -4.8,
+     "months": 9
+    },
+    {
+     "year": 2016,
+     "mean_mm": -14.7,
+     "months": 9
+    },
+    {
+     "year": 2017,
+     "mean_mm": -55.3,
+     "months": 5
+    },
+    {
+     "year": 2018,
+     "mean_mm": 26.4,
+     "months": 5
+    },
+    {
+     "year": 2019,
+     "mean_mm": 31.6,
+     "months": 12
+    },
+    {
+     "year": 2020,
+     "mean_mm": 95.5,
+     "months": 12
+    },
+    {
+     "year": 2021,
+     "mean_mm": 107.4,
+     "months": 12
+    },
+    {
+     "year": 2022,
+     "mean_mm": 144.0,
+     "months": 12
+    },
+    {
+     "year": 2023,
+     "mean_mm": 179.6,
+     "months": 12
+    },
+    {
+     "year": 2024,
+     "mean_mm": 220.3,
+     "months": 12
+    },
+    {
+     "year": 2025,
+     "mean_mm": 273.1,
+     "months": 12
+    },
+    {
+     "year": 2026,
+     "mean_mm": 201.1,
+     "months": 7
+    }
+   ]
+  },
+  "residual_gldas": {
+   "full": {
+    "rate_mm_yr": 9.18,
+    "ci95": [
+     4.77,
+     13.6
+    ],
+    "se": 2.24,
+    "phi": 0.955,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 48.4
+   },
+   "periods": {
+    "2002-2010": {
+     "rate_mm_yr": -0.95,
+     "ci95": [
+      -4.62,
+      2.72
+     ],
+     "se": 1.85,
+     "phi": 0.749,
+     "n_months": 102,
+     "first": "2002-04",
+     "last": "2010-12",
+     "annual_amplitude_mm": 41.6
+    },
+    "2011-2017": {
+     "rate_mm_yr": 3.54,
+     "ci95": [
+      -2.88,
+      9.96
+     ],
+     "se": 3.2,
+     "phi": 0.752,
+     "n_months": 61,
+     "first": "2011-02",
+     "last": "2017-06",
+     "annual_amplitude_mm": 44.1
+    },
+    "2018-2026 (GRACE-FO)": {
+     "rate_mm_yr": 32.73,
+     "ci95": [
+      25.71,
+      39.75
+     ],
+     "se": 3.53,
+     "phi": 0.852,
+     "n_months": 96,
+     "first": "2018-06",
+     "last": "2026-07",
+     "annual_amplitude_mm": 59.8
+    }
+   },
+   "end_dates": {
+    "2021-12": {
+     "rate_mm_yr": 3.76,
+     "ci95": [
+      1.61,
+      5.9
+     ],
+     "se": 1.09,
+     "phi": 0.868,
+     "n_months": 204,
+     "first": "2002-04",
+     "last": "2021-12",
+     "annual_amplitude_mm": 45.4
+    },
+    "2023-12": {
+     "rate_mm_yr": 5.97,
+     "ci95": [
+      3.04,
+      8.91
+     ],
+     "se": 1.49,
+     "phi": 0.917,
+     "n_months": 228,
+     "first": "2002-04",
+     "last": "2023-12",
+     "annual_amplitude_mm": 46.8
+    },
+    "2026-12": {
+     "rate_mm_yr": 9.18,
+     "ci95": [
+      4.77,
+      13.6
+     ],
+     "se": 2.24,
+     "phi": 0.955,
+     "n_months": 259,
+     "first": "2002-04",
+     "last": "2026-07",
+     "annual_amplitude_mm": 48.4
+    }
+   },
+   "hinge": {
+    "break": "2019-04",
+    "break_range": [
+     2019.08,
+     2019.5
+    ],
+    "delta_aic_vs_single_line": -373.9,
+    "rate_before": 1.85,
+    "ci95_before": [
+     -0.0,
+     3.7
+    ],
+    "rate_after": 35.1,
+    "ci95_after": [
+     30.16,
+     40.03
+    ]
+   },
+   "mission_step": {
+    "step_mm": -32.4,
+    "ci95": [
+     -69.5,
+     4.7
+    ],
+    "rate_grace": 1.73,
+    "rate_gracefo": 33.26
+   },
+   "annual": [
+    {
+     "year": 2002,
+     "mean_mm": 12.0,
+     "months": 7
+    },
+    {
+     "year": 2003,
+     "mean_mm": 10.7,
+     "months": 11
+    },
+    {
+     "year": 2004,
+     "mean_mm": 11.2,
+     "months": 12
+    },
+    {
+     "year": 2005,
+     "mean_mm": -4.3,
+     "months": 12
+    },
+    {
+     "year": 2006,
+     "mean_mm": -18.0,
+     "months": 12
+    },
+    {
+     "year": 2007,
+     "mean_mm": -0.5,
+     "months": 12
+    },
+    {
+     "year": 2008,
+     "mean_mm": 9.0,
+     "months": 12
+    },
+    {
+     "year": 2009,
+     "mean_mm": 2.6,
+     "months": 12
+    },
+    {
+     "year": 2010,
+     "mean_mm": -4.3,
+     "months": 12
+    },
+    {
+     "year": 2011,
+     "mean_mm": 0.3,
+     "months": 10
+    },
+    {
+     "year": 2012,
+     "mean_mm": 1.7,
+     "months": 10
+    },
+    {
+     "year": 2013,
+     "mean_mm": 27.8,
+     "months": 9
+    },
+    {
+     "year": 2014,
+     "mean_mm": 54.4,
+     "months": 9
+    },
+    {
+     "year": 2015,
+     "mean_mm": 32.4,
+     "months": 9
+    },
+    {
+     "year": 2016,
+     "mean_mm": 8.3,
+     "months": 9
+    },
+    {
+     "year": 2017,
+     "mean_mm": 3.9,
+     "months": 5
+    },
+    {
+     "year": 2018,
+     "mean_mm": 31.2,
+     "months": 5
+    },
+    {
+     "year": 2019,
+     "mean_mm": 28.9,
+     "months": 12
+    },
+    {
+     "year": 2020,
+     "mean_mm": 87.2,
+     "months": 12
+    },
+    {
+     "year": 2021,
+     "mean_mm": 107.2,
+     "months": 12
+    },
+    {
+     "year": 2022,
+     "mean_mm": 129.2,
+     "months": 12
+    },
+    {
+     "year": 2023,
+     "mean_mm": 178.9,
+     "months": 12
+    },
+    {
+     "year": 2024,
+     "mean_mm": 221.1,
+     "months": 12
+    },
+    {
+     "year": 2025,
+     "mean_mm": 269.8,
+     "months": 12
+    },
+    {
+     "year": 2026,
+     "mean_mm": 237.0,
+     "months": 7
+    }
+   ]
+  },
+  "soil_gldas": {
+   "full": {
+    "rate_mm_yr": 0.11,
+    "ci95": [
+     -0.56,
+     0.77
+    ],
+    "se": 0.34,
+    "phi": 0.707,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 78.4
+   }
+  },
+  "soil_amplitude_mm": {
+   "gldas": 78.4,
+   "terraclimate": 40.3
+  }
+ },
+ "spread": [
+  {
+   "solution": "costg",
+   "area": "lev3",
+   "soil": "GLDAS",
+   "full": {
+    "rate_mm_yr": 9.18,
+    "ci95": [
+     4.77,
+     13.6
+    ],
+    "se": 2.24,
+    "phi": 0.955,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 48.4
+   },
+   "gracefo": {
+    "rate_mm_yr": 32.73,
+    "ci95": [
+     25.71,
+     39.75
+    ],
+    "se": 3.53,
+    "phi": 0.852,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 59.8
+   }
+  },
+  {
+   "solution": "costg",
+   "area": "lev3",
+   "soil": "GLDAS, leakage removed",
+   "full": {
+    "rate_mm_yr": 12.0,
+    "ci95": [
+     5.76,
+     18.24
+    ],
+    "se": 3.17,
+    "phi": 0.954,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 53.6
+   },
+   "gracefo": {
+    "rate_mm_yr": 45.11,
+    "ci95": [
+     34.87,
+     55.36
+    ],
+    "se": 5.16,
+    "phi": 0.831,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 70.2
+   }
+  },
+  {
+   "solution": "costg",
+   "area": "lev3",
+   "soil": "TerraClimate (to 2021-12)",
+   "full": {
+    "rate_mm_yr": 3.73,
+    "ci95": [
+     0.78,
+     6.68
+    ],
+    "se": 1.5,
+    "phi": 0.881,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 65.9
+   },
+   "same_years_gldas": {
+    "rate_mm_yr": 3.76,
+    "ci95": [
+     1.61,
+     5.9
+    ],
+    "se": 1.09,
+    "phi": 0.868,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 45.4
+   }
+  },
+  {
+   "solution": "costg",
+   "area": "lev4_west",
+   "soil": "GLDAS",
+   "full": {
+    "rate_mm_yr": 15.52,
+    "ci95": [
+     10.4,
+     20.64
+    ],
+    "se": 2.6,
+    "phi": 0.949,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 30.6
+   },
+   "gracefo": {
+    "rate_mm_yr": 44.57,
+    "ci95": [
+     37.12,
+     52.01
+    ],
+    "se": 3.75,
+    "phi": 0.791,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 40.1
+   }
+  },
+  {
+   "solution": "costg",
+   "area": "lev4_west",
+   "soil": "GLDAS, leakage removed",
+   "full": {
+    "rate_mm_yr": 22.79,
+    "ci95": [
+     14.66,
+     30.91
+    ],
+    "se": 4.13,
+    "phi": 0.932,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 33.5
+   },
+   "gracefo": {
+    "rate_mm_yr": 73.36,
+    "ci95": [
+     62.19,
+     84.53
+    ],
+    "se": 5.62,
+    "phi": 0.719,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 50.9
+   }
+  },
+  {
+   "solution": "costg",
+   "area": "lev4_west",
+   "soil": "TerraClimate (to 2021-12)",
+   "full": {
+    "rate_mm_yr": 8.56,
+    "ci95": [
+     6.01,
+     11.1
+    ],
+    "se": 1.29,
+    "phi": 0.849,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 46.2
+   },
+   "same_years_gldas": {
+    "rate_mm_yr": 8.95,
+    "ci95": [
+     6.88,
+     11.03
+    ],
+    "se": 1.05,
+    "phi": 0.825,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 28.4
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev3",
+   "soil": "GLDAS",
+   "full": {
+    "rate_mm_yr": 8.9,
+    "ci95": [
+     5.1,
+     12.7
+    ],
+    "se": 1.93,
+    "phi": 0.922,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 48.7
+   },
+   "gracefo": {
+    "rate_mm_yr": 34.01,
+    "ci95": [
+     28.37,
+     39.65
+    ],
+    "se": 2.84,
+    "phi": 0.7,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 60.7
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev3",
+   "soil": "GLDAS, leakage removed",
+   "full": {
+    "rate_mm_yr": 14.25,
+    "ci95": [
+     9.15,
+     19.35
+    ],
+    "se": 2.59,
+    "phi": 0.845,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 62.2
+   },
+   "gracefo": {
+    "rate_mm_yr": 57.18,
+    "ci95": [
+     47.18,
+     67.18
+    ],
+    "se": 5.03,
+    "phi": 0.551,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 84.0
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev3",
+   "soil": "TerraClimate (to 2021-12)",
+   "full": {
+    "rate_mm_yr": 3.39,
+    "ci95": [
+     0.57,
+     6.22
+    ],
+    "se": 1.43,
+    "phi": 0.847,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 67.8
+   },
+   "same_years_gldas": {
+    "rate_mm_yr": 3.46,
+    "ci95": [
+     1.56,
+     5.36
+    ],
+    "se": 0.97,
+    "phi": 0.794,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 45.9
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev4_west",
+   "soil": "GLDAS",
+   "full": {
+    "rate_mm_yr": 14.59,
+    "ci95": [
+     10.63,
+     18.54
+    ],
+    "se": 2.01,
+    "phi": 0.88,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 27.9
+   },
+   "gracefo": {
+    "rate_mm_yr": 46.81,
+    "ci95": [
+     40.69,
+     52.92
+    ],
+    "se": 3.08,
+    "phi": 0.509,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 37.3
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev4_west",
+   "soil": "GLDAS, leakage removed",
+   "full": {
+    "rate_mm_yr": 25.89,
+    "ci95": [
+     19.46,
+     32.32
+    ],
+    "se": 3.26,
+    "phi": 0.709,
+    "n_months": 259,
+    "first": "2002-04",
+    "last": "2026-07",
+    "annual_amplitude_mm": 29.9
+   },
+   "gracefo": {
+    "rate_mm_yr": 100.19,
+    "ci95": [
+     87.09,
+     113.29
+    ],
+    "se": 6.59,
+    "phi": 0.167,
+    "n_months": 96,
+    "first": "2018-06",
+    "last": "2026-07",
+    "annual_amplitude_mm": 53.4
+   }
+  },
+  {
+   "solution": "gfz",
+   "area": "lev4_west",
+   "soil": "TerraClimate (to 2021-12)",
+   "full": {
+    "rate_mm_yr": 7.16,
+    "ci95": [
+     5.03,
+     9.29
+    ],
+    "se": 1.08,
+    "phi": 0.743,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 43.3
+   },
+   "same_years_gldas": {
+    "rate_mm_yr": 7.57,
+    "ci95": [
+     5.86,
+     9.28
+    ],
+    "se": 0.87,
+    "phi": 0.695,
+    "n_months": 204,
+    "first": "2002-04",
+    "last": "2021-12",
+    "annual_amplitude_mm": 25.8
+   }
+  }
+ ],
+ "spread_range": {
+  "full": [
+   8.9,
+   25.89
+  ],
+  "gracefo": [
+   32.73,
+   100.19
+  ]
+ },
  "grace": {
   "epochs": 259,
   "first": "2002-04",
   "last": "2026-07",
   "missing_months": 33,
-  "std_mm_median": 13.5
+  "solutions": [
+   "costg",
+   "gfz"
+  ]
  },
  "gldas_last": "2026-07",
  "terraclimate_last": "2021-12",
- "baseline": "2004-2009",
  "g3p": {
-  "primary": {
+  "lev3": {
    "months_in_common": 225,
    "first": "2002-04",
    "last": "2023-09",
    "our_tws": {
-    "trend_mm_yr": 11.55,
-    "se_plain": 0.47,
-    "lag1_autocorr": 0.886,
+    "rate_mm_yr": 6.14,
+    "ci95": [
+     2.49,
+     9.79
+    ],
+    "se": 1.85,
+    "phi": 0.917,
     "n_months": 225,
-    "n_eff": 13.6,
-    "ci95_ar1": [
-     7.08,
-     16.02
-    ],
-    "ci95_block_bootstrap": [
-     8.79,
-     14.58
-    ],
-    "annual_amplitude_mm": 59.0,
-    "first": null,
-    "last": null
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 99.9
    },
    "g3p_tws": {
-    "trend_mm_yr": 11.34,
-    "se_plain": 0.46,
-    "lag1_autocorr": 0.877,
+    "rate_mm_yr": 6.06,
+    "ci95": [
+     2.45,
+     9.66
+    ],
+    "se": 1.83,
+    "phi": 0.915,
     "n_months": 225,
-    "n_eff": 14.8,
-    "ci95_ar1": [
-     7.24,
-     15.44
-    ],
-    "ci95_block_bootstrap": [
-     8.45,
-     14.32
-    ],
-    "annual_amplitude_mm": 57.8,
-    "first": null,
-    "last": null
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 99.4
    },
    "our_residual_gldas": {
-    "trend_mm_yr": 11.4,
-    "se_plain": 0.4,
-    "lag1_autocorr": 0.873,
+    "rate_mm_yr": 6.14,
+    "ci95": [
+     3.22,
+     9.05
+    ],
+    "se": 1.48,
+    "phi": 0.914,
     "n_months": 225,
-    "n_eff": 15.3,
-    "ci95_ar1": [
-     7.91,
-     14.89
-    ],
-    "ci95_block_bootstrap": [
-     8.83,
-     13.82
-    ],
-    "annual_amplitude_mm": 28.0,
-    "first": null,
-    "last": null
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 47.0
    },
    "g3p_groundwater": {
-    "trend_mm_yr": 11.06,
-    "se_plain": 0.4,
-    "lag1_autocorr": 0.865,
+    "rate_mm_yr": 6.06,
+    "ci95": [
+     3.52,
+     8.59
+    ],
+    "se": 1.29,
+    "phi": 0.896,
     "n_months": 225,
-    "n_eff": 16.2,
-    "ci95_ar1": [
-     7.73,
-     14.39
-    ],
-    "ci95_block_bootstrap": [
-     8.57,
-     13.73
-    ],
-    "annual_amplitude_mm": 56.8,
-    "first": null,
-    "last": null
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 54.8
    },
    "g3p_surface_water": {
-    "trend_mm_yr": 0.0,
-    "se_plain": 0.0,
-    "lag1_autocorr": 0.407,
-    "n_months": 225,
-    "n_eff": 94.9,
-    "ci95_ar1": [
-     -0.0,
-     0.01
-    ],
-    "ci95_block_bootstrap": [
-     -0.0,
-     0.01
-    ],
-    "annual_amplitude_mm": 0.7,
-    "first": null,
-    "last": null
-   },
-   "g3p_groundwater_plus_surface_water": {
-    "trend_mm_yr": 11.06,
-    "se_plain": 0.4,
-    "lag1_autocorr": 0.865,
-    "n_months": 225,
-    "n_eff": 16.3,
-    "ci95_ar1": [
-     7.74,
-     14.39
-    ],
-    "ci95_block_bootstrap": [
-     8.6,
-     13.76
-    ],
-    "annual_amplitude_mm": 56.1,
-    "first": null,
-    "last": null
-   },
-   "our_residual_minus_g3p_surface_water": {
-    "trend_mm_yr": 11.4,
-    "se_plain": 0.4,
-    "lag1_autocorr": 0.873,
-    "n_months": 225,
-    "n_eff": 15.3,
-    "ci95_ar1": [
-     7.9,
-     14.9
-    ],
-    "ci95_block_bootstrap": [
-     8.84,
-     13.91
-    ],
-    "annual_amplitude_mm": 28.2,
-    "first": null,
-    "last": null
-   },
-   "corr_residual_vs_g3p_gw_plus_sw": 0.927,
-   "corr_tws_vs_g3p_tws": 0.997,
-   "g3p_surface_water_range_mm": [
-    -0.5,
-    2.1
-   ]
-  },
-  "sensitivity": {
-   "months_in_common": 225,
-   "first": "2002-04",
-   "last": "2023-09",
-   "our_tws": {
-    "trend_mm_yr": 6.41,
-    "se_plain": 0.45,
-    "lag1_autocorr": 0.903,
-    "n_months": 225,
-    "n_eff": 11.5,
-    "ci95_ar1": [
-     1.45,
-     11.36
-    ],
-    "ci95_block_bootstrap": [
-     3.88,
-     9.09
-    ],
-    "annual_amplitude_mm": 101.2,
-    "first": null,
-    "last": null
-   },
-   "g3p_tws": {
-    "trend_mm_yr": 6.27,
-    "se_plain": 0.45,
-    "lag1_autocorr": 0.898,
-    "n_months": 225,
-    "n_eff": 12.1,
-    "ci95_ar1": [
-     1.58,
-     10.96
-    ],
-    "ci95_block_bootstrap": [
-     3.59,
-     8.95
-    ],
-    "annual_amplitude_mm": 100.8,
-    "first": null,
-    "last": null
-   },
-   "our_residual_gldas": {
-    "trend_mm_yr": 6.29,
-    "se_plain": 0.38,
-    "lag1_autocorr": 0.915,
-    "n_months": 225,
-    "n_eff": 10.0,
-    "ci95_ar1": [
-     1.32,
-     11.25
-    ],
-    "ci95_block_bootstrap": [
-     4.09,
-     8.53
-    ],
-    "annual_amplitude_mm": 46.7,
-    "first": null,
-    "last": null
-   },
-   "g3p_groundwater": {
-    "trend_mm_yr": 6.19,
-    "se_plain": 0.35,
-    "lag1_autocorr": 0.885,
-    "n_months": 225,
-    "n_eff": 13.7,
-    "ci95_ar1": [
-     2.93,
-     9.44
-    ],
-    "ci95_block_bootstrap": [
-     4.16,
-     8.29
-    ],
-    "annual_amplitude_mm": 53.2,
-    "first": null,
-    "last": null
-   },
-   "g3p_surface_water": {
-    "trend_mm_yr": -0.02,
-    "se_plain": 0.0,
-    "lag1_autocorr": 0.479,
-    "n_months": 225,
-    "n_eff": 79.2,
-    "ci95_ar1": [
+    "rate_mm_yr": -0.02,
+    "ci95": [
      -0.03,
      -0.01
     ],
-    "ci95_block_bootstrap": [
-     -0.03,
-     -0.01
-    ],
-    "annual_amplitude_mm": 0.9,
-    "first": null,
-    "last": null
-   },
-   "g3p_groundwater_plus_surface_water": {
-    "trend_mm_yr": 6.16,
-    "se_plain": 0.35,
-    "lag1_autocorr": 0.883,
+    "se": 0.01,
+    "phi": 0.524,
     "n_months": 225,
-    "n_eff": 13.9,
-    "ci95_ar1": [
-     2.94,
-     9.39
-    ],
-    "ci95_block_bootstrap": [
-     4.03,
-     8.26
-    ],
-    "annual_amplitude_mm": 52.7,
-    "first": null,
-    "last": null
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 0.9
    },
-   "our_residual_minus_g3p_surface_water": {
-    "trend_mm_yr": 6.31,
-    "se_plain": 0.38,
-    "lag1_autocorr": 0.915,
-    "n_months": 225,
-    "n_eff": 9.9,
-    "ci95_ar1": [
-     1.28,
-     11.34
-    ],
-    "ci95_block_bootstrap": [
-     4.19,
-     8.51
-    ],
-    "annual_amplitude_mm": 46.3,
-    "first": null,
-    "last": null
-   },
-   "corr_residual_vs_g3p_gw_plus_sw": 0.786,
+   "corr_residual_vs_g3p_groundwater": 0.781,
    "corr_tws_vs_g3p_tws": 0.999,
    "g3p_surface_water_range_mm": [
     -0.9,
     2.9
+   ]
+  },
+  "lev4_west": {
+   "months_in_common": 225,
+   "first": "2002-04",
+   "last": "2023-09",
+   "our_tws": {
+    "rate_mm_yr": 11.3,
+    "ci95": [
+     7.99,
+     14.61
+    ],
+    "se": 1.68,
+    "phi": 0.887,
+    "n_months": 225,
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 58.6
+   },
+   "g3p_tws": {
+    "rate_mm_yr": 11.09,
+    "ci95": [
+     7.9,
+     14.28
+    ],
+    "se": 1.62,
+    "phi": 0.882,
+    "n_months": 225,
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 57.4
+   },
+   "our_residual_gldas": {
+    "rate_mm_yr": 11.25,
+    "ci95": [
+     8.57,
+     13.94
+    ],
+    "se": 1.36,
+    "phi": 0.874,
+    "n_months": 225,
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 29.1
+   },
+   "g3p_groundwater": {
+    "rate_mm_yr": 10.86,
+    "ci95": [
+     8.23,
+     13.48
+    ],
+    "se": 1.33,
+    "phi": 0.868,
+    "n_months": 225,
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 57.9
+   },
+   "g3p_surface_water": {
+    "rate_mm_yr": 0.0,
+    "ci95": [
+     -0.01,
+     0.01
+    ],
+    "se": 0.0,
+    "phi": 0.473,
+    "n_months": 225,
+    "first": "2002-04",
+    "last": "2023-09",
+    "annual_amplitude_mm": 0.7
+   },
+   "corr_residual_vs_g3p_groundwater": 0.926,
+   "corr_tws_vs_g3p_tws": 0.997,
+   "g3p_surface_water_range_mm": [
+    -0.5,
+    2.1
    ]
   }
  }
