@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
-    <title>Water storage in the Lake Chad sink catchment from GRACE and
-GRACE-FO, 2002–2026</title>
+    <title>Water storage in the Lake Chad basin from GRACE and GRACE-FO,
+2002–2026</title>
     <meta name="description" content="GRACE water storage over the Lake
-Chad sink catchment, 2002-2026: trend, uncertainty and what is
+Chad basin, 2002-2026: when it changed, by how much, and what is
 groundwater.">
     <meta name="author" content="David Oloyede">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%231f56b0'/%3E%3C/svg%3E">
@@ -44,75 +44,84 @@ groundwater.">
 
 <main class="article" id="top">
 <header class="title">
-    <h1>Water storage in the Lake Chad sink catchment from GRACE and
-GRACE-FO, 2002–2026</h1>
+    <h1>Water storage in the Lake Chad basin from GRACE and GRACE-FO,
+2002–2026</h1>
     <p class="sig"><span>David Oloyede</span><span>November
-2026</span><span class="sig-meta"><span>Version 1.0</span></span></p>
+2026</span><span class="sig-meta"><span>Version 1.1</span></span></p>
 </header>
 
 <h2 id="abstract">Abstract</h2>
-<p>We ask whether water storage around Lake Chad has been falling or
-rising since 2002, by how much, and how much of the change can be called
-groundwater. We average the COST-G GravIS gravity record (259 monthly
-fields, 2002-04 to 2026-07, 33 months missing including the 2017–2018
-break between the GRACE and GRACE-FO missions) over the Lake Chad sink
-catchment (248,870 km², HydroBASINS level 4), and subtract soil water
-from two land models, GLDAS Noah and TerraClimate. Total water storage
-rose by +16.2 mm per year over the whole record (95% interval +11.9 to
-+20.5), slowly in the GRACE years 2002–2017 (+4.8 mm per year) and
-quickly in the GRACE-FO years 2018–2026 (+48.7 mm per year). Removing
-GLDAS soil water leaves +15.9 mm per year (+12.1 to +19.6), about 4.0
-km³ per year over the catchment. The remainder holds groundwater and
-surface water together: with no open lake-storage record in this study,
-the two cannot be separated, and there is no independent groundwater
-validation. G3P, a groundwater product built from the same gravity data,
-agrees on total storage but its surface-water layer is close to zero
-here, so it does not resolve the lake either. The rise is the opposite
-of the decline reported in an earlier version of this study, which was
-withdrawn.</p>
+<p>We ask whether water storage in the Lake Chad basin has fallen or
+risen since 2002, when, by how much, and how much of the change remains
+after removing soil water. We average two GravIS gravity solutions
+(COST-G and GFZ; 259 monthly fields for COST-G, 2002-04 to 2026-07, 33
+months missing including the 2017–2018 break between the GRACE and
+GRACE-FO missions) over the HydroBASINS level-3 unit that holds the
+whole lake system (1,119,893 km²), and subtract soil water from GLDAS
+Noah and TerraClimate. Storage was close to flat for the first part of
+the record and then rose steeply. A two-segment fit puts the change in
+October 2018 (best breaks July 2018 to January 2019): total storage
+changed by +0.9 mm per year before it (−1.4 to +3.1) and +34.8 mm per
+year after it (+29.4 to +40.2). After removing GLDAS soil water, storage
+rose by +32.7 mm per year over the GRACE-FO years 2018–2026 (+25.7 to
++39.8), about 37 km³ per year over the basin unit. Across the two
+gravity solutions and with or without the product’s leakage correction,
+that rate ranges from +32.7 to +57.2 mm per year. A straight line
+through the whole record gives +9.2 mm per year (+4.8 to +13.6), but
+this summary depends on the end date (+3.8 mm per year to 2021, +6.0 to
+2023). The remainder holds groundwater and surface water together, which
+this study cannot separate, and there is no independent groundwater
+validation.</p>
 <p><strong>Keywords:</strong> GRACE; GRACE-FO; terrestrial water
 storage; groundwater; Lake Chad; Sahel</p>
 <h2 id="introduction">1. Introduction</h2>
 <p>Satellite gravimetry measures changes in all the water stored in a
 region: soil water, groundwater, lakes, rivers and wetlands together.
 Groundwater is usually estimated by subtracting the other stores, taken
-from land-surface models, which means its quality depends on those
-models and on what is left out.</p>
+from land-surface models, so its quality depends on those models and on
+what is left out.</p>
 <p>An earlier version of this study reported groundwater storage over
 the Quaternary Chad Formation falling by 5.84 mm per year from 2002 to
-2025 and validated it against five boreholes. An audit found that the
+2025 and validated it against five boreholes. An audit found that its
 time series did not have the structure of the GRACE record (evenly
 spaced steps and no 2017–2018 gap), that the borehole series had no
 documented source, and that several numbers did not match the data. That
-version is withdrawn and kept in <code>archive/withdrawn-v1/</code> for
-the record. This note rebuilds the analysis from the published gravity
-record.</p>
-<p>We ask two questions. Has total water storage in the Lake Chad sink
-catchment fallen or risen since 2002, and how certain is the trend? And
-how much of it remains after removing soil water, which is the closest
-this study can get to groundwater?</p>
+series was not derived from the published GRACE record, and the version
+is withdrawn; it is kept in <code>archive/withdrawn-v1/</code> for the
+record. This note rebuilds the analysis from published gravity data.</p>
+<p>We ask two questions. How has total water storage in the Lake Chad
+basin changed since 2002, and how certain is that? And how much of the
+change remains after removing soil water, which is the closest this
+study can get to groundwater?</p>
 <h2 id="data-and-methods">2. Data and methods</h2>
 <h3 id="study-area">2.1 Study area</h3>
 <p>No published outline of the Chad Formation aquifer was available, so
 the study area is a river-basin unit. The main area is the HydroBASINS
-level-4 unit that contains Lake Chad (248,870 km²), the lake’s own sink
-catchment. The level-3 unit that contains it (1,119,893 km²) is used as
-a sensitivity test (Lehner &amp; Grill, 2013).</p>
+level-3 unit that contains Lake Chad (1,119,893 km²; Lehner &amp; Grill,
+2013). It holds the lake’s terminal level-4 unit and every level-4 unit
+that drains to it. As a sensitivity test we use a smaller level-4 unit
+west of the lake (248,870 km²), which drains into the terminal unit and
+does not contain the whole lake.</p>
 <h3 id="data">2.2 Data</h3>
 <p><strong>Gravity.</strong> Terrestrial water storage anomalies come
-from the COST-G GravIS RL02 Level-3 product (Boergens et al., 2025), on
-a 1-degree grid in equivalent water height, with a standard deviation
-for each cell and month. GRACE resolves features of a few hundred
-kilometres, so the 1-degree grid is smoother than it looks. Each monthly
-field is matched to the calendar month of its mid-date; two months hold
-two fields each, and the later field is moved to the following month,
-which has none. Missing months stay missing.</p>
+from the GravIS Level-3 products on a 1-degree grid in equivalent water
+height, with a standard deviation for each month: the COST-G RL02
+combination (Boergens et al., 2025), used for the main results, and the
+GFZ RL06 solution (Boergens et al., 2019), used as a second solution.
+The two are not independent: COST-G combines several analysis centres
+including GFZ, and both use the same GravIS processing. GRACE resolves
+features of a few hundred kilometres, so the 1-degree grid is smoother
+than it looks. Each monthly field is matched to the calendar month of
+its mid-date; where two fields fall in one month, the later one is moved
+to the following month, which has none. Missing months stay missing.</p>
 <p><strong>Soil water.</strong> GLDAS-2.1 Noah monthly (Rodell et al.,
 2004; Beaudoing &amp; Rodell, 2020) gives soil moisture in four layers
 down to 2 m, snow and canopy water, from 2002 to 2026-07. TerraClimate
-(Abatzoglou et al., 2018) gives a second, independent estimate of soil
-water from a simpler water-balance model, available here to 2021-12.
-Neither model includes lakes, rivers or wetlands.</p>
+(Abatzoglou et al., 2018) gives soil water at the end of each month from
+a simpler bucket model, available here to 2021-12. Its seasonal cycle
+over the basin is about half that of GLDAS (40 against 78 mm), so it
+removes less water and is a weaker test. Neither model includes lakes,
+rivers or wetlands.</p>
 <p>Each grid is averaged over the study area with weights equal to the
 fraction of each cell inside the area times the cosine of latitude.</p>
 <h3 id="separation">2.3 Separation</h3>
@@ -120,206 +129,302 @@ fraction of each cell inside the area times the cosine of latitude.</p>
 2004–2009. The residual storage is the gravity anomaly minus the
 soil-water anomaly. It contains groundwater and surface water
 together.</p>
-<h3 id="trend-and-uncertainty">2.4 Trend and uncertainty</h3>
-<p>The trend is a straight line fitted together with annual and
-semi-annual cycles to the months that exist. Monthly residuals are
-strongly autocorrelated (lag-1 correlation 0.95 for total storage), so
-the plain regression error is too small. We report a 95% interval from a
-moving-block bootstrap of the residuals with 24-month blocks, and an
-AR(1)-adjusted interval in the data files. The stated GRACE error adds
-very little: repeating the fit with each month’s standard deviation as
-random noise changes the trend by 0.12 mm per year (one standard
-deviation). The choices tested are the soil model, the study area,
-removing the leakage term the product provides, and the period.</p>
+<h3 id="rates-and-uncertainty">2.4 Rates and uncertainty</h3>
+<p>Rates are fitted together with annual and semi-annual cycles by
+generalised least squares with first-order autoregressive errors that
+respect the missing months; monthly values are strongly autocorrelated,
+so ordinary least squares would understate the uncertainty. Because the
+record has distinct phases, we report: a rate for each period
+(2002–2010, 2011 to mid-2017, and the GRACE-FO years from mid-2018); a
+continuous two-segment fit whose break month is chosen by the Akaike
+information criterion, with the range of break months within 2 units of
+the best; the straight-line rate through the whole record for three end
+dates; and the spread of rates across choices (gravity solution, leakage
+correction, soil model, study area). The GRACE errors stated in the
+product change the full-record rate by only 0.11 mm per year when drawn
+independently each month. That is a lower bound, because it ignores
+errors shared between months and between the missions; the spread across
+choices is the larger uncertainty.</p>
+<p>The break falls close to the 2017–2018 gap between the missions, so
+we also fit separate straight lines to the GRACE and GRACE-FO years and
+estimate the step between them at the middle of the gap.</p>
 <h3 id="consistency-check">2.5 Consistency check</h3>
-<p>G3P (Güntner et al., 2024) is a groundwater product built from the
-same gravity data, with separate layers for groundwater, soil water and
-surface water. Because it uses the same GRACE record, agreement with it
-is a check of consistency, not a validation. Its surface-water layer
-gives an outside estimate of how much of the storage change sits in
-lakes and wetlands. We compare over the 225 months both cover (2002-04
-to 2023-09).</p>
+<p>G3P v1.12 (Güntner et al., 2024) is a groundwater product built from
+an earlier release of the COST-G combination (RL01), with separate
+layers for groundwater, soil water and surface water. Because it uses
+largely the same gravity data, agreement with it is a check of
+consistency, not a validation. We compare over the 225 months both cover
+(2002-04 to 2023-09).</p>
 <h2 id="results">3. Results</h2>
 <h3 id="total-water-storage">3.1 Total water storage</h3>
 <figure class="wide" id="fig-1">
-<img src="assets/figures/fig1_area.png" width="960" height="780" loading="lazy" alt="Storage trend in each 1-degree GRACE cell, 2002–2026, with the Lake Chad sink catchment (solid) and the level-3 unit (dashed).">
+<img src="assets/figures/fig1_area.png" width="960" height="780" loading="lazy" alt="Straight-line storage trend in each 1-degree GRACE cell, 2002–2026 (COST-G), with the level-3 basin unit (solid) and the western level-4 unit (dashed). Blank cells are ocean. The marker shows the approximate position of the lake.">
 <figcaption>
-<b>Figure 1.</b> Storage trend in each 1-degree GRACE cell, 2002–2026,
-with the Lake Chad sink catchment (solid) and the level-3 unit (dashed).
+<b>Figure 1.</b> Straight-line storage trend in each 1-degree GRACE
+cell, 2002–2026 (COST-G), with the level-3 basin unit (solid) and the
+western level-4 unit (dashed). Blank cells are ocean. The marker shows
+the approximate position of the lake.
 </figcaption>
 </figure>
-<p>Total water storage over the sink catchment rose by +16.2 mm per year
-from 2002-04 to 2026-07 (95% interval +11.9 to +20.5). The rise is
-uneven. Over the GRACE mission years it was +4.8 mm per year (+2.8 to
-+6.9), and over the GRACE-FO years +48.7 mm per year (+42.5 to +54.7).
-Annual mean storage stayed within −8.2 to +62.0 mm of the 2004–2009 mean
-up to 2016, then rose to 429 mm above it in 2025 (Figure 2, Figure 3).
-The seasonal cycle has an amplitude of about 62 mm. Figure 1 shows the
-rise across the region at the resolution GRACE allows; the cells that
-overlap the catchment have trends from +4.9 to +21.5 mm per year.</p>
+<p>Over the basin unit, total storage changed little until 2018: −0.9 mm
+per year in 2002–2010 (−4.8 to +3.0) and +1.5 mm per year from 2011 to
+mid-2017 (−7.0 to +10.0). In the GRACE-FO years it rose by +33.5 mm per
+year (+25.4 to +41.7). The two-segment fit is much better than a single
+line (Akaike criterion lower by 350), with its break in October 2018.
+Annual mean storage stayed within −15.2 to +13.0 mm of the 2004–2009
+mean in the complete years up to 2016, and reached 273 mm above it in
+2025 (Figure 2, Figure 3).</p>
+<p>The step between the missions is estimated at −21.2 mm (−64.8 to
++22.4). It is not distinguishable from zero and points the wrong way to
+explain the rise, which is measured within the GRACE-FO years alone. A
+small step cannot be ruled out; it would mostly affect the straight-line
+rate through the whole record.</p>
+<p>The cells that overlap the basin unit have straight-line trends from
+−1.6 to +21.5 mm per year (Figure 1). The largest is in the cell centred
+at 11.5° N, 7.5° E, west of the lake, while the cell holding the lake
+marker has +14.6 mm per year.</p>
 <figure class="wide" id="fig-2">
-<img src="assets/figures/fig2_monthly.png" width="1080" height="540" loading="lazy" alt="Monthly anomalies from the 2004–2009 mean for the Lake Chad sink catchment: total storage with its stated error band, GLDAS soil water, and storage minus soil water from each model. The grey band is the 2017–2018 gap between the missions.">
+<img src="assets/figures/fig2_monthly.png" width="1080" height="540" loading="lazy" alt="Monthly anomalies from the 2004–2009 mean for the basin unit: total storage with its stated error band, GLDAS soil water, and storage minus soil water from each model. The grey band is the 2017–2018 gap between the missions.">
 <figcaption>
-<b>Figure 2.</b> Monthly anomalies from the 2004–2009 mean for the Lake
-Chad sink catchment: total storage with its stated error band, GLDAS
-soil water, and storage minus soil water from each model. The grey band
-is the 2017–2018 gap between the missions.
+<b>Figure 2.</b> Monthly anomalies from the 2004–2009 mean for the basin
+unit: total storage with its stated error band, GLDAS soil water, and
+storage minus soil water from each model. The grey band is the 2017–2018
+gap between the missions.
 </figcaption>
 </figure>
 <h3 id="after-removing-soil-water">3.2 After removing soil water</h3>
-<p>Soil water in GLDAS changes by +0.4 mm per year over the record, so
-most of the storage trend remains after removing it: +15.9 mm per year
-(+12.1 to +19.6), or about 4.0 km³ per year over 248,870 km². With
-TerraClimate soil water, over the years it covers (to 2021-12), the
-residual trend is +8.9 mm per year (+6.4 to +11.3), against +9.3 mm per
-year with GLDAS over the same years.</p>
+<p>GLDAS soil water shows no clear trend over the record (+0.1 mm per
+year, −0.6 to +0.8), so the residual follows total storage. Its rate is
+−0.9 mm per year in 2002–2010, +3.5 mm per year from 2011 to mid-2017
+and +32.7 mm per year in the GRACE-FO years (+25.7 to +39.8); its
+two-segment fit breaks in April 2019. With TerraClimate soil water over
+the years it covers (to 2021-12), the residual changes by +3.7 mm per
+year, against +3.8 mm per year with GLDAS over the same years; both are
+small because those years end before most of the rise.</p>
+<p>The straight-line rate through the whole record is +9.2 mm per year
+(+4.8 to +13.6). It is a summary, not a constant rate: ending the record
+in 2021 gives +3.8 mm per year and ending in 2023 gives +6.0.</p>
 <figure class="wide" id="fig-3">
-<img src="assets/figures/fig3_annual.png" width="1080" height="480" loading="lazy" alt="Annual mean anomalies, total storage and storage minus GLDAS soil water. Years with fewer than nine months of data (2017 and 2018) are left out.">
+<img src="assets/figures/fig3_annual.png" width="1080" height="480" loading="lazy" alt="Annual mean anomalies for the basin unit, total storage and storage minus GLDAS soil water. Years with fewer than nine months of data (2002, 2017, 2018, 2026) are left out.">
 <figcaption>
-<b>Figure 3.</b> Annual mean anomalies, total storage and storage minus
-GLDAS soil water. Years with fewer than nine months of data (2017 and
-2018) are left out.
+<b>Figure 3.</b> Annual mean anomalies for the basin unit, total storage
+and storage minus GLDAS soil water. Years with fewer than nine months of
+data (2002, 2017, 2018, 2026) are left out.
 </figcaption>
 </figure>
 <h3 id="sensitivity-and-consistency">3.3 Sensitivity and
 consistency</h3>
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Specification</th>
-<th style="text-align: right;">Trend, mm per year</th>
-<th style="text-align: left;">95% interval</th>
+<th style="text-align: left;">Gravity solution</th>
+<th style="text-align: left;">Area</th>
+<th style="text-align: left;">Soil water</th>
+<th style="text-align: left;">Rate 2002–2026, mm per year (95%
+interval)</th>
+<th style="text-align: left;">Rate in GRACE-FO years, mm per year (95%
+interval)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">GLDAS soil water, Lake Chad sink catchment
-(main)</td>
-<td style="text-align: right;">+15.9</td>
-<td style="text-align: left;">+12.1 to +19.6</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">GLDAS</td>
+<td style="text-align: left;">+9.2 (+4.8 to +13.6)</td>
+<td style="text-align: left;">+32.7 (+25.7 to +39.8)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TerraClimate soil water, to 2021-12</td>
-<td style="text-align: right;">+8.9</td>
-<td style="text-align: left;">+6.4 to +11.3</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">GLDAS, leakage removed</td>
+<td style="text-align: left;">+12.0 (+5.8 to +18.2)</td>
+<td style="text-align: left;">+45.1 (+34.9 to +55.4)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GLDAS, same years as TerraClimate</td>
-<td style="text-align: right;">+9.3</td>
-<td style="text-align: left;">+7.1 to +11.3</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">TerraClimate (to 2021-12)</td>
+<td style="text-align: left;">+3.7 (+0.8 to +6.7)</td>
+<td style="text-align: left;">not covered</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GLDAS, leakage term removed</td>
-<td style="text-align: right;">+23.4</td>
-<td style="text-align: left;">+16.6 to +29.8</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">GLDAS</td>
+<td style="text-align: left;">+15.5 (+10.4 to +20.6)</td>
+<td style="text-align: left;">+44.6 (+37.1 to +52.0)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GLDAS, level-3 unit</td>
-<td style="text-align: right;">+9.8</td>
-<td style="text-align: left;">+6.7 to +13.1</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">GLDAS, leakage removed</td>
+<td style="text-align: left;">+22.8 (+14.7 to +30.9)</td>
+<td style="text-align: left;">+73.4 (+62.2 to +84.5)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GLDAS, GRACE years only (2002–2017)</td>
-<td style="text-align: right;">+6.2</td>
-<td style="text-align: left;">+3.8 to +8.6</td>
+<td style="text-align: left;">COST-G RL02</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">TerraClimate (to 2021-12)</td>
+<td style="text-align: left;">+8.6 (+6.0 to +11.1)</td>
+<td style="text-align: left;">not covered</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GLDAS, GRACE-FO years only
-(2018–2026)</td>
-<td style="text-align: right;">+46.9</td>
-<td style="text-align: left;">+41.3 to +52.7</td>
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">GLDAS</td>
+<td style="text-align: left;">+8.9 (+5.1 to +12.7)</td>
+<td style="text-align: left;">+34.0 (+28.4 to +39.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">GLDAS, leakage removed</td>
+<td style="text-align: left;">+14.2 (+9.2 to +19.4)</td>
+<td style="text-align: left;">+57.2 (+47.2 to +67.2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Basin unit (level 3)</td>
+<td style="text-align: left;">TerraClimate (to 2021-12)</td>
+<td style="text-align: left;">+3.4 (+0.6 to +6.2)</td>
+<td style="text-align: left;">not covered</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">GLDAS</td>
+<td style="text-align: left;">+14.6 (+10.6 to +18.5)</td>
+<td style="text-align: left;">+46.8 (+40.7 to +52.9)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">GLDAS, leakage removed</td>
+<td style="text-align: left;">+25.9 (+19.5 to +32.3)</td>
+<td style="text-align: left;">+100.2 (+87.1 to +113.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GFZ RL06</td>
+<td style="text-align: left;">Western unit (level 4)</td>
+<td style="text-align: left;">TerraClimate (to 2021-12)</td>
+<td style="text-align: left;">+7.2 (+5.0 to +9.3)</td>
+<td style="text-align: left;">not covered</td>
 </tr>
 </tbody>
 </table>
-<p>Table 1. Residual storage trend (gravity minus soil water) under
-different choices. Intervals from the moving-block bootstrap.</p>
+<p>Table 1. Residual storage rates (gravity minus soil water) under each
+choice. Intervals from generalised least squares with autoregressive
+errors. TerraClimate rows end in 2021-12.</p>
+<p>In the basin unit, the GRACE-FO rate ranges from +32.7 to +57.2 mm
+per year across the two solutions and the leakage choice, and the
+product’s leakage correction raises it. The western level-4 unit, where
+the rise is strongest, gives higher rates throughout.</p>
 <p>Over the 225 months in common (2002-04 to 2023-09), our total storage
-and G3P’s correlate at 0.997, with trends of +11.6 and +11.3 mm per
-year, as expected from the same gravity data. Our residual and G3P’s
-groundwater correlate at 0.93; their trends over the same months are
-+11.4 and +11.1 mm per year. G3P’s surface-water layer stays between
-−0.5 and 2.1 mm over the catchment, so it does not represent Lake Chad
-and its wetlands, and G3P effectively counts the whole residual as
-groundwater. The comparison therefore cannot split lake water from
-groundwater.</p>
+and G3P’s correlate at 0.999, with rates of +6.1 and +6.1 mm per year.
+Our residual and G3P’s groundwater layer correlate at 0.78, with rates
+of +6.1 and +6.1 mm per year; G3P’s groundwater has a larger seasonal
+cycle (55 against 47 mm). G3P’s surface-water layer stays between −0.9
+and 2.9 mm over the basin, so G3P counts nearly the whole residual as
+groundwater; the comparison cannot split lake water from groundwater. It
+also ends before the steepest part of the rise.</p>
 <h3 id="explore">3.4 Explore the data</h3>
-<p>The map shows the storage trend of each 1-degree GRACE cell from 2002 to 2026. Select a cell, or use Tab, to read its value. The solid outline is the Lake Chad sink catchment and the dashed outline the larger level-3 unit. A 1-degree cell is finer than what GRACE resolves (a few hundred kilometres), so neighbouring cells are not independent.</p>
+<p>The map shows the straight-line storage trend of each 1-degree GRACE cell from 2002 to 2026. Select a cell to read its value; with a keyboard, press Tab to reach the map and use the arrow keys. The solid outline is the level-3 basin unit and the dashed outline the western level-4 unit. A 1-degree cell is finer than what GRACE resolves (a few hundred kilometres), so neighbouring cells are not independent.</p>
 <div id="gr-map" class="gr-map"></div>
-<div class="gr-legend"><span id="gr-lim-lo"></span><span id="gr-bar" class="gr-bar" aria-hidden="true"></span><span id="gr-lim-hi"></span></div>
-<p id="gr-readout" class="gr-readout" role="status">Select a cell for its trend.</p>
-<p>The chart shows the monthly series for the Lake Chad sink catchment. Use the buttons to show or hide each series. Lines break where GRACE has no month.</p>
-<div id="gr-toggles" class="gr-toggles" role="group" aria-label="Series"></div>
+<div class="gr-legend"><span class="gr-legend-title">Trend, mm per year</span><span id="gr-lim-lo"></span><span id="gr-bar" class="gr-bar" aria-hidden="true"></span><span id="gr-lim-hi"></span></div>
+<p id="gr-readout" class="gr-readout" role="status" aria-live="polite">Select a cell for its trend.</p>
+<details class="gr-cells"><summary>Show the cells in the basin unit as a table</summary><div id="gr-table"></div></details>
+<p>The chart shows the monthly series for the basin unit. Use the buttons to show or hide each series. Lines break where GRACE has no month.</p>
+<div id="gr-toggles" class="gr-toggles" role="group" aria-label="Series shown in the chart"></div>
 <div id="gr-chart" class="gr-chart"></div>
 <h2 id="discussion">4. Discussion</h2>
-<p>Water storage around Lake Chad has risen since 2002, and mostly since
-2018. This study does not test what caused the rise: rainfall, inflow
-and lake extent were not analysed. Most of the rise survives the removal
-of soil water in both models, so it sits deeper than 2 m or in surface
-water.</p>
-<p>Whether it is groundwater cannot be settled here. The lake, its
-wetlands and the floodplains of its inflowing rivers lie inside the
-catchment, and the gravity record cannot tell water in them from
-groundwater. G3P counts the whole change as groundwater, but only
-because its surface-water layer does not include the lake, so it cannot
-settle the question.</p>
-<p>The earlier version of this study reported a steady decline. The real
-gravity record shows the opposite sign, and the decline cannot be
-reproduced from any published GRACE series used here.</p>
+<p>Water storage in the Lake Chad basin changed little from 2002 to
+about 2018 and then rose steeply. Almost all of the rise remains after
+removing GLDAS soil water. This study does not test what caused it:
+rainfall, river inflow and lake extent were not analysed.</p>
+<p>Whether the rise is groundwater cannot be settled here. The basin
+unit contains the lake, its wetlands and the floodplains of its
+inflowing rivers, and the gravity record cannot tell water in them from
+groundwater. G3P counts the change as groundwater, but its surface-water
+layer stays close to zero over the basin, so it does not settle the
+question either. Lake level from satellite altimetry would help; the
+Hydroweb service lists a Lake Chad series, but it could not be reached
+from the environment used for this study.</p>
+<p>The earlier version of this study reported a steady decline for a
+differently drawn and undocumented area. Its series was not derived from
+the published GRACE record, and the gravity record used here shows no
+decline over the basin unit.</p>
 <h2 id="limitations">5. Limitations</h2>
 <p>There is no independent groundwater measurement: no well records were
 available, so the result is not validated. The residual contains
 groundwater and surface water together. The study area is a river-basin
-unit, not the aquifer outline. GRACE resolves a few hundred kilometres,
-the catchment covers only about 21 1-degree cells, and signal leaks in
-and out of it; the product’s leakage term was tested but not used for
-the main result. The soil models differ in depth and physics, and
-neither was compared with soil-moisture observations. The trend is a
-straight line through a record whose rise is concentrated in the last
-eight years, so the full-period rate is a summary, not a constant rate.
-The intervals cover sampling and autocorrelation, not errors shared by
-the models.</p>
+unit, not the aquifer outline, and the strongest rise lies in its
+western part. GRACE resolves a few hundred kilometres and signal leaks
+in and out of the unit; the leakage correction changes the GRACE-FO rate
+by more than its stated interval. Only two gravity solutions from the
+same processing chain were used. The soil models differ in depth and
+physics, and neither was compared with soil-moisture observations. The
+rise is concentrated in the last years of the record, so the full-record
+rate depends on the end date, and the break sits near the mission gap,
+so a small step between the missions cannot be ruled out. The intervals
+cover sampling and autocorrelation, not errors shared by the models or
+the gravity solutions.</p>
 <h2 id="conclusion">6. Conclusion</h2>
-<p>Water storage in the Lake Chad sink catchment rose by +16.2 mm per
-year from 2002-04 to 2026-07, and by +48.7 mm per year in the GRACE-FO
-years. After removing soil water, +15.9 mm per year remains, in
-groundwater and surface water that this study cannot separate. The
-earlier claim of a groundwater decline is not supported by the gravity
-record.</p>
+<p>Over the Lake Chad basin unit, water storage was close to flat until
+about 2018 and then rose by +33.5 mm per year in total storage and +32.7
+mm per year after removing soil water (+32.7 to +57.2 across the gravity
+solution and leakage choices). The water is in groundwater, surface
+water or both, which this study cannot separate. The earlier claim of a
+groundwater decline is not supported by the gravity record.</p>
 <h2 id="data-and-code-availability">Data and code availability</h2>
 <p>Code is released under the MIT licence and derived data under CC BY
 4.0, from <a
 href="https://github.com/oloyededavid/Groundwater-Storage-Gravimetry"
 class="uri">https://github.com/oloyededavid/Groundwater-Storage-Gravimetry</a>.
-Every number in this note is read from
-<code>docs/data/results.json</code>, which the scripts in
+The results in this note are read from
+<code>docs/data/results.json</code> and
+<code>docs/data/grace_cells.json</code>, which the scripts in
 <code>scripts/</code> write. Source data keep their own terms.</p>
 <h2 id="references">References</h2>
 <p>Abatzoglou, J. T., Dobrowski, S. Z., Parks, S. A., &amp; Hegewisch,
 K. C. (2018). TerraClimate, a high-resolution global dataset of monthly
 climate and climatic water balance from 1958–2015. <em>Scientific
-Data</em>, 5, 170191. https://doi.org/10.1038/sdata.2017.191</p>
+Data</em>, 5, 170191. <a href="https://doi.org/10.1038/sdata.2017.191"
+class="uri">https://doi.org/10.1038/sdata.2017.191</a></p>
 <p>Beaudoing, H., &amp; Rodell, M. (2020). <em>GLDAS Noah Land Surface
 Model L4 monthly 0.25 x 0.25 degree, Version 2.1</em>. NASA Goddard
-Earth Sciences Data and Information Services Center.
-https://doi.org/10.5067/SXAVCZFAQLNO</p>
+Earth Sciences Data and Information Services Center. <a
+href="https://doi.org/10.5067/SXAVCZFAQLNO"
+class="uri">https://doi.org/10.5067/SXAVCZFAQLNO</a></p>
+<p>Boergens, E., Dobslaw, H., &amp; Dill, R. (2019). <em>GFZ GravIS RL06
+Continental Water Storage Anomalies</em> (Version 0006). GFZ Data
+Services. <a href="https://doi.org/10.5880/GFZ.GRAVIS_06_L3_TWS"
+class="uri">https://doi.org/10.5880/GFZ.GRAVIS_06_L3_TWS</a></p>
 <p>Boergens, E., Dobslaw, H., &amp; Dill, R. (2025). <em>COST-G GravIS
 RL02 Terrestrial Water Storage Anomalies</em> (Version 0001). GFZ Data
-Services. https://doi.org/10.5880/COST-G.GRAVIS_02_L3_TWS</p>
+Services. <a href="https://doi.org/10.5880/COST-G.GRAVIS_02_L3_TWS"
+class="uri">https://doi.org/10.5880/COST-G.GRAVIS_02_L3_TWS</a></p>
 <p>Güntner, A., Sharifi, E., Haas, J., et al. (2024). <em>Global
 Gravity-based Groundwater Product (G3P)</em> (Version 1.12). GFZ Data
-Services. https://doi.org/10.5880/G3P.2024.001</p>
+Services. <a href="https://doi.org/10.5880/G3P.2024.001"
+class="uri">https://doi.org/10.5880/G3P.2024.001</a></p>
 <p>Lehner, B., &amp; Grill, G. (2013). Global river hydrography and
 network routing: baseline data and new approaches to study the world’s
 large river systems. <em>Hydrological Processes</em>, 27(15), 2171–2186.
-https://doi.org/10.1002/hyp.9740</p>
+<a href="https://doi.org/10.1002/hyp.9740"
+class="uri">https://doi.org/10.1002/hyp.9740</a></p>
 <p>Rodell, M., Houser, P. R., Jambor, U., et al. (2004). The Global Land
 Data Assimilation System. <em>Bulletin of the American Meteorological
-Society</em>, 85(3), 381–394. https://doi.org/10.1175/BAMS-85-3-381</p>
+Society</em>, 85(3), 381–394. <a
+href="https://doi.org/10.1175/BAMS-85-3-381"
+class="uri">https://doi.org/10.1175/BAMS-85-3-381</a></p>
 
 </main>
 
