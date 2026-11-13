@@ -43,6 +43,8 @@
         const cols = [...new Set(lons)].sort((a, b) => a - b), rows = [...new Set(lats)].sort((a, b) => b - a);
         const at = new Map(cs.map(c => [`${c.lat},${c.lon}`, c]));
         const rects = new Map();
+        const rowG = new Map(rows.map(lat => [lat, el('g', { role: 'row' })]));
+        rowG.forEach(g => svg.append(g));
         cs.forEach(c => {
             const r = el('rect', { x: px(c.lon - h).toFixed(1), y: py(c.lat + h).toFixed(1), width: (2 * h * s).toFixed(1), height: (2 * h * s).toFixed(1),
                 fill: diverge(c.trend, lim), class: 'gr-cell', tabindex: '-1', role: 'gridcell',
@@ -50,7 +52,7 @@
             r.addEventListener('click', () => focus(c));
             r.addEventListener('focus', () => show(c));
             r.addEventListener('mouseenter', () => show(c));
-            svg.append(r);
+            rowG.get(c.lat).append(r);
             rects.set(`${c.lat},${c.lon}`, r);
         });
         const order = [...d.domains.features].sort((a, b) => (a.properties.id === d.main ? 1 : -1));
