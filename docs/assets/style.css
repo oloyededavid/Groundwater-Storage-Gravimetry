@@ -882,3 +882,7 @@ main img { height: auto; }
 .gr-lake-label { font-size: 15px; fill: #111; paint-order: stroke; stroke: #fff; stroke-width: 3px; pointer-events: none; }
 .gr-cell:focus { outline: none; stroke: #111; stroke-width: 3; }
 .gr-cells table { font-size: 15px; }
+
+/* consistency with the portfolio: left-aligned text, portfolio blue */
+:root { --accent: #1f5fae; }
+.article section > p, .article section li, .note p, .citation p, figcaption, .eqx-text { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
