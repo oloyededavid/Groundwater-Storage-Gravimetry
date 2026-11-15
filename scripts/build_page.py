@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FIG = re.compile(r"!\[(\*\*Figure (\d+)\.\*\* )?(.*?)\]\(docs/(assets/figures/[^)]+)\)")
 
-EXPLORE = """<h3 id="explore">3.4 Explore the data</h3>
+EXPLORE = """<h3 id="explore">3.4 Map and chart</h3>
 <p>The map shows the straight-line storage trend of each 1-degree GRACE cell from 2002 to 2026. Select a cell to read its value; with a keyboard, press Tab to reach the map and use the arrow keys. The solid outline is the level-3 basin unit and the dashed outline the western level-4 unit. A 1-degree cell is finer than what GRACE resolves (a few hundred kilometres), so neighbouring cells are not independent.</p>
 <div id="gr-map" class="gr-map"></div>
 <div class="gr-legend"><span class="gr-legend-title">Trend, mm per year</span><span id="gr-lim-lo"></span><span id="gr-bar" class="gr-bar" aria-hidden="true"></span><span id="gr-lim-hi"></span></div>
