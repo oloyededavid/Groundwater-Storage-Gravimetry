@@ -114,7 +114,10 @@ def build(R, C):
                 f"{num(G['our_residual_gldas']['rate_mm_yr'])} and {num(G['g3p_groundwater']['rate_mm_yr'])} mm per year; G3P's groundwater has a larger "
                 f"seasonal cycle ({G['g3p_groundwater']['annual_amplitude_mm']:.0f} against {G['our_residual_gldas']['annual_amplitude_mm']:.0f} mm). "
                 f"G3P's surface-water layer stays between {num(swr[0], False)} and {num(swr[1], False)} mm over the basin, so G3P counts nearly the whole "
-                f"residual as groundwater; the comparison cannot split lake water from groundwater. It also ends before the steepest part of the rise.")
+                f"residual as groundwater; the comparison cannot split lake water from groundwater. G3P's groundwater rate equals its total-storage rate "
+                f"({num(G['g3p_groundwater']['rate_mm_yr'])} and {num(G['g3p_tws']['rate_mm_yr'])} mm per year), so the agreement adds no independent evidence "
+                f"about groundwater. It also ends before the steepest part of the rise.")
+    need(abs(G['g3p_groundwater']['rate_mm_yr'] - G['g3p_tws']['rate_mm_yr']) < 0.5, "G3P groundwater and total-storage rates are the same")
     km3 = R["areas"][study.MAIN]["km3_per_mm"]
     v = {
         "date": date.today().strftime("%B %Y"),
