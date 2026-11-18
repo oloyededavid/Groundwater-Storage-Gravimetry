@@ -83,8 +83,9 @@ def build(R, C):
     # the earlier rise in the years with 9-11 months of data (2013-2015)
     hump_t = max((a for a in tws["annual"] if 9 <= a["months"] < 12 and 2013 <= a["year"] <= 2015), key=lambda a: a["mean_mm"])
     hump_r = [a["mean_mm"] for a in res["annual"] if 2013 <= a["year"] <= 2015 and a["months"] >= 9]
-    need(len(hump_r) == 3 and min(hump_r) > max(early), "storage minus soil water rose in 2013-2015 above the complete early years")
-    need(hump_t["mean_mm"] > max(early), "total storage rose in 2013-2015 above the complete early years")
+    early_r = [a["mean_mm"] for a in res["annual"] if a["months"] == 12 and a["year"] <= 2016]
+    need(len(hump_r) == 3 and min(hump_r) > max(early_r), "storage minus soil water rose in 2013-2015 above its complete early years")
+    need(hump_t["year"] == 2014 and hump_t["mean_mm"] > max(early), "total storage rose around 2014 above the complete early years")
     rst = res["mission_step"]
     need(rst["ci95"][0] < 0 < rst["ci95"][1], "the step for storage minus soil water is not distinguishable from zero")
     need(rst["ci95"][0] < st["ci95"][0], "its interval reaches further than the step for total storage")
