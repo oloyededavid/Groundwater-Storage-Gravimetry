@@ -114,4 +114,6 @@ Güntner, A., Sharifi, E., Haas, J., et al. (2024). *Global Gravity-based Ground
 
 Lehner, B., & Grill, G. (2013). Global river hydrography and network routing: baseline data and new approaches to study the world's large river systems. *Hydrological Processes*, 27(15), 2171–2186. <https://doi.org/10.1002/hyp.9740>
 
+Pham-Duc, B., Sylvestre, F., Papa, F., Frappart, F., Bouchez, C., & Crétaux, J.-F. (2020). The Lake Chad hydrology under current climate change. *Scientific Reports*, 10, 5498. <https://doi.org/10.1038/s41598-020-62417-w>
+
 Rodell, M., Houser, P. R., Jambor, U., et al. (2004). The Global Land Data Assimilation System. *Bulletin of the American Meteorological Society*, 85(3), 381–394. <https://doi.org/10.1175/BAMS-85-3-381>
