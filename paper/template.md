@@ -70,7 +70,7 @@ The straight-line rate through the whole record is {{res_full}} mm per year ({{r
 
 ## 3.3 Sensitivity and consistency
 
-| Gravity solution | Area | Soil water | Rate 2002–2026, mm per year (95% interval) | Rate in GRACE-FO years, mm per year (95% interval) |
+| Gravity solution | Area | Soil water and leakage | Rate 2002–2026, mm per year (95% interval) | Rate in GRACE-FO years, mm per year (95% interval) |
 | :--- | :--- | :--- | :--- | :--- |
 {{sens_table}}
 
