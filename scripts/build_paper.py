@@ -80,6 +80,14 @@ def build(R, C):
     out_years = [str(a["year"]) for a in tws["annual"] if a["months"] < 9]
     early = [a["mean_mm"] for a in tws["annual"] if a["months"] == 12 and a["year"] <= 2016]
     late = max((a for a in ann if a["year"] >= 2019), key=lambda a: a["mean_mm"])
+    # the earlier rise in the years with 9-11 months of data (2013-2015)
+    hump_t = max((a for a in tws["annual"] if 9 <= a["months"] < 12 and 2013 <= a["year"] <= 2015), key=lambda a: a["mean_mm"])
+    hump_r = [a["mean_mm"] for a in res["annual"] if 2013 <= a["year"] <= 2015 and a["months"] >= 9]
+    need(len(hump_r) == 3 and min(hump_r) > max(early), "storage minus soil water rose in 2013-2015 above the complete early years")
+    need(hump_t["mean_mm"] > max(early), "total storage rose in 2013-2015 above the complete early years")
+    rst = res["mission_step"]
+    need(rst["ci95"][0] < 0 < rst["ci95"][1], "the step for storage minus soil water is not distinguishable from zero")
+    need(rst["ci95"][0] < st["ci95"][0], "its interval reaches further than the step for total storage")
     # cells overlapping the main area
     lat = np.array(sorted({c["lat"] for c in C["cells"]}, reverse=True))
     lon = np.array(sorted({c["lon"] for c in C["cells"]}))
@@ -123,6 +131,9 @@ def build(R, C):
         "p2": num(tws["periods"]["2011-2017"]["rate_mm_yr"]), "p2_ci": ci(tws["periods"]["2011-2017"]["ci95"]),
         "p3": num(tws["periods"][FO]["rate_mm_yr"]), "p3_ci": ci(tws["periods"][FO]["ci95"]),
         "step": num(st["step_mm"]), "step_ci": ci(st["ci95"]),
+        "res_step": num(rst["step_mm"]), "res_step_ci": ci(rst["ci95"]),
+        "hump_tws": num(hump_t["mean_mm"]), "hump_tws_year": str(hump_t["year"]),
+        "hump_res_lo": num(min(hump_r)), "hump_res_hi": num(max(hump_r)), "hump_years": "2013–2015",
         "early_lo": num(min(early)), "early_hi": num(max(early)), "late_max": f"{late['mean_mm']:.0f}", "late_max_year": str(late["year"]),
         "cell_lo": num(min(x[1] for x in over)), "cell_hi": num(mx), "cell_max_lat": f"{mx_lat:.1f}", "cell_max_lon": f"{mx_lon:.1f}",
         "cell_lake": num(lake),
