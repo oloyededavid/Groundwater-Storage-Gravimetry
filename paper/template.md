@@ -52,7 +52,7 @@ G3P v1.12 (Güntner et al., 2024) is a groundwater product built from an earlier
 
 ![**Figure 1.** Straight-line storage trend in each 1-degree GRACE cell, 2002–2026 (COST-G), with the level-3 basin unit (solid) and the western level-4 unit (dashed). Blank cells are ocean. The marker shows the approximate position of the lake.](docs/assets/figures/fig1_area.png)
 
-Over the basin unit, total storage changed little until 2018: {{p1}} mm per year in 2002–2010 ({{p1_ci}}) and {{p2}} mm per year from 2011 to mid-2017 ({{p2_ci}}). In the GRACE-FO years it rose by {{p3}} mm per year ({{p3_ci}}). The two-segment fit is much better than a single line (Akaike criterion lower by {{daic}}), with its break in {{brk}}. Annual mean storage stayed within {{early_lo}} to {{early_hi}} mm of the {{baseline}} mean in the complete years up to 2016, and reached {{late_max}} mm above it in {{late_max_year}} (Figure 2, Figure 3).
+Over the basin unit, total storage changed little until 2018: {{p1}} mm per year in 2002–2010 ({{p1_ci}}) and {{p2}} mm per year from 2011 to mid-2017 ({{p2_ci}}). In the GRACE-FO years it rose by {{p3}} mm per year ({{p3_ci}}). The two-segment fit is much better than a single line (Akaike criterion lower by {{daic}}, computed as if months were independent, which overstates the difference), with its break in {{brk}}. Annual mean storage stayed within {{early_lo}} to {{early_hi}} mm of the {{baseline}} mean in the complete years up to 2016, but the years with 9–11 months of data show an earlier rise: total storage reached {{hump_tws}} mm in {{hump_tws_year}}, and storage minus soil water {{hump_res_lo}} to {{hump_res_hi}} mm in {{hump_years}}. Total storage then reached {{late_max}} mm above the {{baseline}} mean in {{late_max_year}} (Figure 2, Figure 3).
 
 The step between the missions is estimated at {{step}} mm ({{step_ci}}). It is not distinguishable from zero and points the wrong way to explain the rise, which is measured within the GRACE-FO years alone. For storage minus soil water the step is {{res_step}} mm ({{res_step_ci}}): also not distinguishable from zero, but its interval reaches further, so the inter-mission break remains a real uncertainty for the timing of the change. A small step cannot be ruled out; it would mostly affect the straight-line rate through the whole record.
 
@@ -82,7 +82,7 @@ In the basin unit, the GRACE-FO rate ranges from {{spread_fo_lo}} to {{spread_fo
 
 # 4. Discussion
 
-Water storage in the Lake Chad basin changed little from 2002 to about 2018 and then rose steeply. Almost all of the rise remains after removing GLDAS soil water. This study does not test what caused it: rainfall, river inflow and lake extent were not analysed.
+Water storage in the Lake Chad basin changed little from 2002 to about 2018, apart from a rise in 2013–2015, and then rose steeply. Almost all of the rise remains after removing GLDAS soil water. This study does not test what caused it: rainfall, river inflow and lake extent were not analysed. A multi-satellite study of the lake (Pham-Duc et al., 2020) found its extent stable over the last two decades and groundwater, about 70 % of the lake's annual storage change, rising since the 2000s with water supplied by its two main tributaries. That points the same way as the rise found here, but it is a separate analysis with its own assumptions and does not test the rates reported here.
 
 Whether the rise is groundwater cannot be settled here. The basin unit contains the lake, its wetlands and the floodplains of its inflowing rivers, and the gravity record cannot tell water in them from groundwater. G3P counts the change as groundwater, but its surface-water layer stays close to zero over the basin, so it does not settle the question either. Lake level from satellite altimetry would help; the Hydroweb service lists a Lake Chad series, but it could not be reached from the environment used for this study.
 
@@ -94,7 +94,7 @@ There is no independent groundwater measurement: no well records were available,
 
 # 6. Conclusion
 
-Over the Lake Chad basin unit, water storage was close to flat until about 2018 and then rose by {{p3}} mm per year in total storage and {{res_fo}} mm per year after removing soil water ({{spread_fo_lo}} to {{spread_fo_hi}} across the gravity solution and leakage choices). The water is in groundwater, surface water or both, which this study cannot separate. The earlier claim of a groundwater decline is not supported by the gravity record.
+Over the Lake Chad basin unit, water storage changed little until about 2018, apart from a rise in 2013–2015, and then rose by {{p3}} mm per year in total storage and {{res_fo}} mm per year after removing soil water ({{spread_fo_lo}} to {{spread_fo_hi}} across the gravity solution and leakage choices). The water is in groundwater, surface water or both, which this study cannot separate. The earlier claim of a groundwater decline is not supported by the gravity record.
 
 # Data and code availability
 

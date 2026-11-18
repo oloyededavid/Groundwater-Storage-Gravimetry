@@ -15,7 +15,7 @@ How has water storage in the Lake Chad basin changed since 2002, when did it cha
 - The gravity record measures all stored water. After removing soil water from two land models, the remainder holds **groundwater and surface water together** (Lake Chad, wetlands, floodplains). They are not separated here.
 - There is **no independent groundwater validation**: no well records were available.
 - The main study area is the HydroBASINS level-3 unit that contains Lake Chad, which holds the whole lake system, because no outline of the Chad Formation aquifer was available. A smaller level-4 unit west of the lake, which drains into the lake's terminal unit, is a sensitivity test.
-- The record is flat until about 2018 and then rises steeply, so the study reports rates by period and a two-segment fit, not one straight line.
+- The record changes little until about 2018, apart from a rise in 2013–2015, and then rises steeply, so the study reports rates by period and a two-segment fit, not one straight line.
 - Lake altimetry (Hydroweb) could not be reached from the environment used, so the lake's own storage is not removed.
 - G3P, a groundwater product built from an earlier release of the same gravity combination, is a consistency check, not a validation.
 
